@@ -20,3 +20,14 @@
   - Análises Estatísticas
   
 Contate-me em caso de dúvidas pelo endereço: lilianeconteville@gmail.com
+
+<h2>Pré-requisitos:</h2>
+
+- É aconselhável ter um conhecimento básico de linux e R.
+- Ter realizad o download da Máquina Virtual que será utilizada no curso.
+
+<h2>Máquina Virtual:</h2>
+
+1. Realizar o download do programa [Oracle VM VirtualBox](https://www.virtualbox.org/)
+2. Realizar o download da iso 
+3. 
