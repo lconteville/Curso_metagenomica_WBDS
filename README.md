@@ -28,6 +28,6 @@ Contate-me em caso de dúvidas pelo endereço: lilianeconteville@gmail.com
 
 <h2>Máquina Virtual:</h2>
 
-1. Realizar o download do programa [Oracle VM VirtualBox](https://www.virtualbox.org/)
-2. Realizar o download da iso 
-3. 
+1. Realizar o download do programa [Oracle VM VirtualBox](https://www.virtualbox.org/wiki/Downloads) e Instalar
+3. Realizar o download da iso 
+4. 
