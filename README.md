@@ -10,7 +10,7 @@
   - Introdução à Metagenômica
   - Metodologia da abordagem de Metagenômica
   
-**2. Aulas Teórica + Práticas**
+**2. Aulas Teóricas + Práticas**
   - Arquivo FastQ
   - Análise da Qualidade das Sequências
   - Trimagem e Filtragem
