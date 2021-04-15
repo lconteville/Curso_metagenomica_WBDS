@@ -24,7 +24,7 @@ Contate-me em caso de dúvidas pelo endereço: lilianeconteville@gmail.com
 <h2>Pré-requisitos:</h2>
 
 - É aconselhável ter um conhecimento básico de linux e R.
-- Ter realizad o download da Máquina Virtual que será utilizada no curso.
+- Ter realizado o download da Máquina Virtual que será utilizada no curso.
 
 <h2>Máquina Virtual:</h2>
 
