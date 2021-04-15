@@ -6,10 +6,11 @@
 
 <h2>Programa do Curso:</h2>
 
-1. Aulas Teóricas
+**1. Aulas Teóricas**
   - Introdução à Metagenômica
   - Metodologia da abordagem de Metagenômica
-2. Aulas Teórica + Práticas
+  
+**2. Aulas Teórica + Práticas**
   - Arquivo FastQ
   - Análise da Qualidade das Sequências
   - Trimagem e Filtragem
