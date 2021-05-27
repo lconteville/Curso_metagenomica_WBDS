@@ -1,5 +1,3 @@
-# Curso_metagenomica_WBDS
-
 <h1>Curso de Metagenômica no Estudo de Comunidades Microbianas</h1>
 
 **Parte do [2° Congresso Latino Americano de Mulheres em Bioinformática e Ciência de Dados](https://wbds.la/conferences/2WBDSLAC/index.html)**
