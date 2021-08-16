@@ -32,7 +32,7 @@
 - Para analisar a qualidade das sequências do Fastq, vamos utilizar o programa [FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/), que fornece uma maneira simples de verificar a qualidade de sequências provenientes de sequenciamento de alto rendimento.
 - Com o FastQC instalado, só precisamos chamar o FastQC seguido do arquivo fastq:
 
-    <code>fastqc SRR8732219_2.fastq</code>
+    <code>fastqc SRR8732219_1.fastq</code>
 
 - O comando acima gera um arquivo <code>.html</code> e um arquivo <code>.zip</code>. O arquivo .html contêm um relatório final com todas as análises de qualidade realizadas. O arquivo .zip é um arquivo compactado das figuras e textos que são resultados das análises.
 - No site do FastQC são fornecidos exemplos de arquivos html de um metagenoma com [alta qualidade](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/good_sequence_short_fastqc.html) e [baixa qualidade](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/bad_sequence_fastqc.html).
