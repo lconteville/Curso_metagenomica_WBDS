@@ -18,7 +18,14 @@
 
 <h3> Arquivos Fastq </h3>
 
+- Os Fastq são arquivos de texto em que as informações sobre cada sequência estão dispostas em 4 linhas:
+    * 1ª linha: O nome da sequência.
+    * 2ª linha: A sequência nucleotídica (com bases A, T, C, G e N).
+    * 3ª linha: Um  sinal de mais (+), que é simplesmente um separador e pode vir seguido do nome da sequência.
+    * 4ª linha: As pontuações de qualidade de cada base da sequência.
+- Para ler um arquivo pelo terminal, podemos usar o comando <code>head</code>. Esse comando mostra no terminal o conteúdo das 10 primeiras linhas de um arquivo.
 
+    <code>head SRR8732219_1.fastq</code>
 
 <h3> Análise de Qualidade </h3>
 
