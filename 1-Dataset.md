@@ -6,9 +6,16 @@
 - **Microbioma de Rúmen** de Búfalo Colombiano ([Aguilar-Marin et al, 2020](https://bmcmicrobiol.biomedcentral.com/articles/10.1186/s12866-020-02037-6#Sec8))
 
 <h3> Download dos Metagenomas </h3>
-- Para conseguir baixar e análisar esses metagenomas, primeiramente precisamos do número de acesso do metagenoma de interesse ou do projeto na base de dados que eles estão depositados.
-- Se os metagenomas foram depositados no NCBI, eles ficam armazenados no repositório [Sequence Read Archive (SRA)](https://www.ncbi.nlm.nih.gov/sra).
-SRA toolkit
+
+- Para conseguir baixar e analisar esses metagenomas, primeiramente precisamos do número de acesso do metagenoma (ex: SRR8732219) de interesse ou do projeto (ex: BioProject PRJNA527208) na base de dados que eles estão depositados. Normalmente esses números são apresentados no artigo a qual eles estão associados.
+- Se os metagenomas foram depositados no NCBI, eles ficam armazenados no [Sequence Read Archive (SRA)](https://www.ncbi.nlm.nih.gov/sra), um repositório público para dados de sequenciamento de DNA.
+- Para baixar diretamente um metagenoma do SRA, podemos usar a ferramenta <code>fasterq-dump</code> do [SRA toolkit](https://ncbi.github.io/sra-tools/). Com o SRA toolkit instalado, só precisamos chamar a ferramenta fasterq-dump seguinda do número de acesso do metagenoma de interesse:
+    
+    <code>fasterq-dump SRR8732219</code>
+    
+- O comando acima gerará dois arquivos <code>.fastq</code>, que referem-se às sequências pareadas do metagenoma de interesse.
+
+<h3> Arquivos Fastq </h3>
 
 <h3> Análise de Qualidade </h3>
 
