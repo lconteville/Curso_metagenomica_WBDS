@@ -1,4 +1,4 @@
-<h3> Neste curso serão utilizados dados metagenômicos disponíveis em bancos de dados: </h3>
+<h3> Dados metagenômicos que serão utilizados </h3>
 
 - **Microbioma Intestinal** de Indígena da Amazônia Brasileira ([Conteville et al, 2019](https://www.frontiersin.org/articles/10.3389/fmicb.2019.01743/full))
 - **Microbioma de Solo** de Caatinga do Nordeste Brasileiro ([Lacerda-Júnior et al, 2019](https://www.frontiersin.org/articles/10.3389/fmicb.2019.00648/full))
