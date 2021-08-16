@@ -7,9 +7,9 @@
 
 <h3> Download dos Metagenomas </h3>
 
-- Para conseguir baixar e analisar esses metagenomas, primeiramente precisamos do número de acesso do metagenoma (ex: SRR8732219) de interesse ou do projeto (ex: BioProject PRJNA527208) na base de dados que eles estão depositados. Normalmente esses números são apresentados no artigo a qual eles estão associados.
+- Para conseguir baixar e analisar esses metagenomas, primeiramente precisamos do número de acesso do metagenoma (ex: SRR8732219) ou do projeto (ex: BioProject PRJNA527208) em que ele está. Normalmente esses números são apresentados no artigo a qual eles estão associados.
 - Se os metagenomas foram depositados no NCBI, eles ficam armazenados no [Sequence Read Archive (SRA)](https://www.ncbi.nlm.nih.gov/sra), um repositório público para dados de sequenciamento de DNA.
-- Para baixar algum dado do SRA, podemos usar o [SRA toolkit](https://ncbi.github.io/sra-tools/), é uma coleção de ferramentas e bibliotecas para este fim. Nesta coleção existe a ferramenta <code>fasterq-dump</code>, utilizada para baixar os metagenomas que serão analisados neste workshop.
+- Para baixar algum dado do SRA, podemos usar o [SRA toolkit](https://ncbi.github.io/sra-tools/), que é uma coleção de ferramentas e bibliotecas para este fim. Nesta coleção existe a ferramenta <code>fasterq-dump</code>, utilizada para baixar os metagenomas que serão analisados neste workshop.
 - Com o SRA toolkit instalado, só precisamos chamar a ferramenta fasterq-dump seguida do número de acesso do metagenoma de interesse:
     
     <code>fasterq-dump SRR8732219</code>
@@ -29,11 +29,12 @@
 
 <h3> Análise de Qualidade </h3>
 
-- Para analisar a qualidade das sequências do Fastq, vamos utilizar o programa [FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/), que fornece uma maneira simples de verificar a qualidade das sequências provenientes de sequenciamento de alto rendimento.
+- Para analisar a qualidade das sequências do Fastq, vamos utilizar o programa [FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/), que fornece uma maneira simples de verificar a qualidade de sequências provenientes de sequenciamento de alto rendimento.
 - Com o FastQC instalado, só precisamos chamar o FastQC seguido do arquivo fastq:
 
     <code>fastqc SRR8732219_2.fastq</code>
 
-- O comando acima gera um arquivo <code>.html</code> e um arquivo <code>.zip</code>.
+- O comando acima gera um arquivo <code>.html</code> e um arquivo <code>.zip</code>. O arquivo .html contêm um relatório final com todas as análises de qualidade realizadas. O arquivo .zip é um arquivo compactado das figuras e textos que são resultados das análises.
+- No site do FastQC são fornecidos exemplos de arquivos html de um metagenoma com [alta qualidade](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/good_sequence_short_fastqc.html) e [baixa qualidade](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/bad_sequence_fastqc.html).
 
-<h3></h3>
+<h3> Trimagem </h3>
