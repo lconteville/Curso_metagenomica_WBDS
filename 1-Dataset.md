@@ -29,4 +29,6 @@
 
 <h3> Análise de Qualidade </h3>
 
-<h3>
+- Para analisar a qualidade das sequências do Fastq, vamos utilizar o programa [FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/)
+
+<h3></h3>
