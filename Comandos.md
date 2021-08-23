@@ -40,4 +40,16 @@
 
 - Pelos gráficos gerados pelo FastQC podemos ter uma ideia geral de como estão as nossas sequências. No site do FastQC são fornecidos exemplos de arquivos html de um metagenoma com [alta qualidade](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/good_sequence_short_fastqc.html) e [baixa qualidade](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/bad_sequence_fastqc.html).
 
-<h3> Trimagem </h3>
+<h3> Trimagem e Filtragem </h3>
+
+- No geral, os metagenomas analisados nesse workshop não precisam de uma limpeza por já terem sido trimados antes de serem adicionados na base de dados, mas vamos aumentar ainda mais a qualidade de um deles.
+
+- A trimagem (corte) de adaptadores e bases de baixa qualidade é uma etapa importante na análise de dados de sequenciamento. Essas regiões são indesejadas por causarem erros ou viéses nas análises.
+
+- Para esta etapa, utilizaremos o programa [cutadapt](https://cutadapt.readthedocs.io/en/stable/). Este programa fornece diversos parâmetros que podem ser utilizados para melhorar a qualidade das nossas sequências. Execute o comando abaixo para ver todas as opções.
+
+    <code>cutadapt --help</code>
+
+- Como todos os nossos metagenomas são paired-end, devemos fornecer dois arquivos de entrada e um segundo arquivo de saída com o parâmetro <code>-p</code> (ou <code>--pair-output</code>). O parâmetro <code>-q</code> (ou <code>--quality-cutoff</code>) pode ser usado para cortar as pontas de baixa qualidade das leituras. O parâmetro <code>-u</code> (ou <code>--cut</code>) remove as bases do início ou do final de cada sequência. Se o número fornecido for positivo, as bases são removidas do início, e se for negativo, são removidas do final. Dessa forma, o comando final fica assim:
+
+    <code>cutadapt XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</code>
