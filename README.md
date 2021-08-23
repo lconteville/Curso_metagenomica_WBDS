@@ -10,10 +10,9 @@
   
 **2. Aulas Teóricas + Práticas**
   - Arquivo FastQ
-  - Análise da Qualidade das Sequências
-  - Trimagem e Filtragem
-  - Mapeamento contra Genoma Hospedeiro
-  - Análise Taxonômica
+  - Análise da Qualidade das Sequências (Programa FastQC)
+  - Trimagem e Filtragem (Programa Trimmomatic)
+  - Análise Taxonômica (Programa MetaPhlAn)
   - Análise Funcional
   - Análises Estatísticas
   
