@@ -60,4 +60,10 @@
    
 <h3> Análise Taxonômica </h3>
 
-- Nesta etapa identificaremos quais organismos estão nas nossas amostras com o programa [MetaPhlAn](http://huttenhower.sph.harvard.edu/metaphlan) (Metagenomic Phylogenetic Analysis). A classificação feita pelo MetaPhlAn baseia-se em seu banco de dados de genes marcadores únicos identificados em genomas de referência de bactérias, arquéias, vírus e eucariotos.
+- Nesta etapa identificaremos quais organismos estão nas nossas amostras com o programa [MetaPhlAn](http://huttenhower.sph.harvard.edu/metaphlan) (Metagenomic Phylogenetic Analysis). A classificação feita pelo MetaPhlAn baseia-se em seu banco de dados de genes marcadores únicos identificados em genomas de referência de bactérias, arquéias, vírus e eucariotos. Execute o comando abaixo para ver todos os parâmetros que podem ser usados no metaphlan.
+
+    <code>metaphlan -h</code>
+    
+- Como nossos arquivos são <code>.fastq</code>, devemos avisar isso ao programa com o parâmetro <code>--input_type</code>. Os dois arquivos que serão usados como input nesse programa devem estar separados por uma vírgula. Utilizaremos o sinal <code>></code> para mandar o resultado do comando para o arquivo <code>rumen_metaphlan.txt</code> .Dessa forma, o comando final fica assim:
+
+    <code>metaphlan XXXXXXXXXXXXX </code>
