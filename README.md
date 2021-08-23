@@ -11,9 +11,9 @@
 **2. Aulas Teóricas + Práticas**
   - Arquivo FastQ
   - Análise da Qualidade das Sequências (Programa FastQC)
-  - Trimagem e Filtragem (Programa Trimmomatic)
+  - Trimagem e Filtragem (Programa Cutadapt)
   - Análise Taxonômica (Programa MetaPhlAn)
-  - Análise Funcional
+  - Análise Funcional (Programa HUMAnN)
   - Análises Estatísticas
   
 Contate-me em caso de dúvidas pelo endereço: lilianeconteville@gmail.com
