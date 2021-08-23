@@ -66,4 +66,23 @@
     
 - Como nossos arquivos são <code>.fastq</code>, devemos avisar isso ao programa com o parâmetro <code>--input_type</code>. Os dois arquivos que serão usados como input nesse programa devem estar separados por uma vírgula. Utilizaremos o sinal <code>></code> para mandar o resultado do comando para o arquivo <code>rumen_metaphlan.txt</code> .Dessa forma, o comando final fica assim:
 
-    <code>metaphlan --input_type fastq SRR11041080_1.q20_2.fastq,SRR11041080_2.q20_2.fastq > SRR11041080_metaphlan.txt</code>
+    <code>metaphlan --input_type fastq SRR11041080_1.q20_2.fastq,SRR11041080_2.q20_2.fastq --bowtie2out SRR11041080_bowtie2out.txt > rumen_metaphlan.txt</code>
+    
+ - Para dar uma olhada no resultado, podemos utilizar o comando <code>cat</code> seguido do nome do output do metaphlan. O comando irá ler o conteúdo do arquivo e exibi-lo no terminal.
+ 
+ <code> cat rumen_metaphlan.txt</code>
+ 
+ - Podemos ver que o arquivo possui um cabeçalho de 4 linhas iniciadas por <code> # </code>. A primeira linha lista o banco de dados de genes marcadores que o MetaPhlAn usa. A segunda linha lista o comando que foi utilizado para gerá-lo. A quarta linha contém os cabeçalhos das colunas que estão abaixo.
+ - A primeira coluna lista os clados, de reinos (Bactérias, Archaea, etc.) a espécies:
+    Reino: k__, Filo: p__, Classe: c__, Ordem: o__, Família: f__, Gênero: g__, Espécie: s__
+ - A segunda coluna lista os número de acesso desses táxons no NCBI. A terceira coluna lista as abundâncias relativas por nível, ou seja cada nível somará 100%. A quarta coluna lista as espécies adicionais para os casos em que o perfil do metagenoma contém clados que representam várias espécies. As espécies listadas na coluna 1 são as espécies representativas.
+ - Podemos filtrar esse resultado e olhar só as famílias que foram identificadas utilizando o comando <code>grep</code>:
+ 
+    <code>grep f__ SRR11041080_metaphlan.txt | grep -v g__</code>
+ 
+ - Para facilitar, o metaphlan já foi rodado nas outras amostras, para visualizar o resultado, podemos usar o cat e seguido do nome dos outros arquivos.
+
+<h3> Análise Funcional </h3>
+
+- Agora que sabemos quais táxons estão nas nossas amostras, vamos buscar o que eles podem estar fazendo nelas. O [HUMAnN](https://huttenhower.sph.harvard.edu/humann/) (HMP Unified Metabolic Analysis Network) é um programa que traça identifica vias metabólicas microbianas e outras funções moleculares nos dados. OBS: Apesar do nome ser HUMAnN, ele é apropriado para qualquer tipo de comunidade microbiana, não apenas o microbioma humano (o nome "HUMAnN" é um produto histórico das origens do método no [Projeto Microbioma Humano](https://www.hmpdacc.org/)).
+
