@@ -46,10 +46,10 @@
 
 - A trimagem (corte) de adaptadores e bases de baixa qualidade é uma etapa importante na análise de dados de sequenciamento. Essas regiões são indesejadas por causarem erros ou viéses nas análises.
 
-- Para esta etapa, utilizaremos o programa [cutadapt](https://cutadapt.readthedocs.io/en/stable/). Este programa fornece diversos parâmetros que podem ser utilizados para melhorar a qualidade das nossas sequências. Execute o comando abaixo para ver todas as opções.
+- Para esta etapa, utilizaremos o programa [cutadapt](https://cutadapt.readthedocs.io/en/stable/). Este programa fornece diversos parâmetros que podem ser utilizados para melhorar a qualidade das nossas sequências. Execute o comando abaixo para ver todas as opções de parâmetros.
 
     <code>cutadapt --help</code>
 
-- Como todos os nossos metagenomas são paired-end, devemos fornecer dois arquivos de entrada e um segundo arquivo de saída com o parâmetro <code>-p</code> (ou <code>--pair-output</code>). O parâmetro <code>-q</code> (ou <code>--quality-cutoff</code>) pode ser usado para cortar as pontas de baixa qualidade das leituras. O parâmetro <code>-u</code> (ou <code>--cut</code>) remove as bases do início ou do final de cada sequência. Se o número fornecido for positivo, as bases são removidas do início, e se for negativo, são removidas do final. Dessa forma, o comando final fica assim:
+- Como todos os nossos metagenomas são paired-end, devemos fornecer dois arquivos de entrada e um segundo arquivo de saída com o parâmetro <code>-p</code> (ou <code>--pair-output</code>). O parâmetro <code>-q</code> (ou <code>--quality-cutoff</code>) será usado para cortar as pontas de baixa qualidade das leituras. O parâmetro <code>-u</code> (ou <code>--cut</code>) remove as bases do início ou do final de cada sequência. Se o número fornecido for positivo, as bases são removidas do início, e se for negativo, são removidas do final. Dessa forma, o comando final fica assim:
 
-    <code>cutadapt XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX</code>
+    <code>cutadapt -q 20 -u 20 -o buffalo_colombia/SRR11041080_1.q20_2.fastq -p buffalo_colombia/SRR11041080_2.q20_2.fastq buffalo_colombia/SRR11041080_1.fastq buffalo_colombia/SRR11041080_2.fastq</code>
