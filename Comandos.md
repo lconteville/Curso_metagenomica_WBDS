@@ -66,4 +66,4 @@
     
 - Como nossos arquivos são <code>.fastq</code>, devemos avisar isso ao programa com o parâmetro <code>--input_type</code>. Os dois arquivos que serão usados como input nesse programa devem estar separados por uma vírgula. Utilizaremos o sinal <code>></code> para mandar o resultado do comando para o arquivo <code>rumen_metaphlan.txt</code> .Dessa forma, o comando final fica assim:
 
-    <code>metaphlan XXXXXXXXXXXXX </code>
+    <code>metaphlan --input_type fastq SRR11041080_1.q20_2.fastq,SRR11041080_2.q20_2.fastq > SRR11041080_metaphlan.txt</code>
