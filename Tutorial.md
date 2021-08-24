@@ -55,11 +55,12 @@
 - Vamos começar cortando as bases "enviesadas" no começo e final das sequências, para isso podemos usar o parâmetro <code>-u</code> (ou <code>--cut</code>). neste parâmetro, se o número fornecido for positivo, as bases são removidas do início, e se for negativo, são removidas do final. Dessa forma, o comando final fica assim:
 
     <code>cutadapt -u 20 -u -10 -o buffalo_colombia/SRR11041080_1.cut.fastq buffalo_colombia/SRR11041080_1.fastq</code>
+    
     <code>cutadapt -u 20 -u -10 -o buffalo_colombia/SRR11041080_2.cut.fastq buffalo_colombia/SRR11041080_2.fastq</code>
     
 - O parâmetro <code>-q</code> (ou <code>--quality-cutoff</code>) será usado para cortar as bases de baixa qualidade das leituras. E o parâmetro <code>-m</code> (ou <code>--minimum-length</code>) será usado para descartar as sequências curtas demais:
 
-    <code>cutadapt -q 20 -m 30 -o buffalo_colombia/SRR11041080_1.q20.fastq -p buffalo_colombia/SRR11041080_2.q20.fastq buffalo_colombia/SRR11041080_1.cut.fastq buffalo_colombia/SRR11041080_2.cut.fastq --pair-filter both</code>
+    <code>cutadapt -q 20 -m 30 -o buffalo_colombia/SRR11041080_1.q20.fastq -p buffalo_colombia/SRR11041080_2.q20.fastq buffalo_colombia/SRR11041080_1.cut.fastq buffalo_colombia/SRR11041080_2.cut.fastq</code>
 
 
 - Para saber se essa etapa funcionou, podemos chamar novamente o programa [FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/) seguido do output do comando acima:
