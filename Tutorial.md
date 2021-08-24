@@ -100,3 +100,6 @@
     
 - O comando acima gerará três arquivos.
 
+
+<h3> Análises Estatísticas</h3>
+Shaman - https://shaman.pasteur.fr/
