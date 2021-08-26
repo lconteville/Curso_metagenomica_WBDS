@@ -5,7 +5,7 @@
 - **Microbioma Aquático** de Praia no Uruguai ([Fresia et al, 2019](https://microbiomejournal.biomedcentral.com/articles/10.1186/s40168-019-0648-z))
 - **Microbioma de Rúmen** de Búfalo Colombiano ([Aguilar-Marin et al, 2020](https://bmcmicrobiol.biomedcentral.com/articles/10.1186/s12866-020-02037-6#Sec8))
 
-<h3> Download dos Metagenomas </h3>
+<h3> Download dos Metagenomas (já foi executado)</h3>
 
 - Para conseguir baixar e analisar esses metagenomas, primeiramente precisamos de seu número de acesso (ex: SRR8732219) ou do número de acesso do projeto que ele pertence (ex: BioProject PRJNA527208). Normalmente esses números são apresentados no artigo a qual eles estão associados.
 - Se os metagenomas foram depositados no NCBI, eles ficam armazenados no [Sequence Read Archive (SRA)](https://www.ncbi.nlm.nih.gov/sra), um repositório público para dados de sequenciamento de DNA.
