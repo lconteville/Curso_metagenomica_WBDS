@@ -36,7 +36,7 @@
 
     <code>fastqc SRR8732219_1.fastq</code>
 
-- O comando acima gera um arquivo <code>.html</code> e um arquivo <code>.zip</code>. O arquivo .html contêm um relatório final com todas as análises de qualidade realizadas. O arquivo <code>.zip</code> é um arquivo compactado das figuras e textos que são resultados das análises. As imagens no arquivo <code>.zip</code> são as mesmas que formam o arquivo <code>.html</code>.
+- O comando acima gera um arquivo <code>.html</code> e um arquivo <code>.zip</code>. O arquivo <code>.html</code> contêm um relatório final com todas as análises de qualidade realizadas. O arquivo <code>.zip</code> é um arquivo compactado das figuras e textos que são resultados das análises. As imagens no arquivo <code>.zip</code> são as mesmas que formam o arquivo <code>.html</code>.
 
 - Pelos gráficos gerados pelo FastQC podemos ter uma ideia geral de como estão as nossas sequências. No site do FastQC são fornecidos exemplos de arquivos html de um metagenoma com [alta qualidade](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/good_sequence_short_fastqc.html) e [baixa qualidade](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/bad_sequence_fastqc.html).
 
@@ -46,22 +46,27 @@
 
 - A trimagem (corte) de adaptadores e bases de baixa qualidade é uma etapa importante na análise de dados de sequenciamento. Essas regiões são indesejadas por causarem erros ou viéses nas análises.
 
-- Para esta etapa, utilizaremos o programa [cutadapt](https://cutadapt.readthedocs.io/en/stable/). Este programa fornece diversos parâmetros que podem ser utilizados para melhorar a qualidade das nossas sequências. Execute o comando abaixo para ver todas as opções de parâmetros.
+- Para esta etapa, utilizaremos o programa [cutadapt](https://cutadapt.readthedocs.io/en/stable/). Este programa fornece diversos parâmetros que podem ser utilizados para melhorar a qualidade das nossas sequências. Execute o comando abaixo para ver todas as opções de parâmetros:
 
     <code>cutadapt --help</code>
+        
+- Quando se sabe quais adaptadores foram utilizados no sequenciamento dos metagenomas, usamos os parâmetros <code>-a</code>, <code>-g</code>, <code>-b</code> seguidos das sequências dos adaptadores. Dessa forma, esses adaptadores serão removidos das sequências (ou da primeira leitura em um par se os dados forem paired-end). Se especificado várias vezes, apenas o melhor adaptador correspondente será cortado. Um arquivo FASTA com as sequências dos adaptadores também pode ser fornecido ao programa. 
 
-- Como todos os nossos metagenomas são paired-end, devemos fornecer dois arquivos de entrada e um segundo arquivo de saída com o parâmetro <code>-p</code> (ou <code>--pair-output</code>). 
-
-- Vamos começar cortando as bases "enviesadas" no começo e final das sequências, para isso podemos usar o parâmetro <code>-u</code> (ou <code>--cut</code>). neste parâmetro, se o número fornecido for positivo, as bases são removidas do início, e se for negativo, são removidas do final. Dessa forma, o comando final fica assim:
+- Como aqui estamos analisando dados de diversos sequenciamentos, vamos cortar direto as bases que parecem "enviesadas" no começo e final das sequências. Para isso podemos usar o parâmetro <code>-u</code> (ou <code>--cut</code>). Neste parâmetro, se o número fornecido for positivo, as bases são removidas do início, e se for negativo, são removidas do final. Dessa forma, o comando final fica assim:
 
     <code>cutadapt -u 20 -u -10 -o buffalo_colombia/SRR11041080_1.cut.fastq buffalo_colombia/SRR11041080_1.fastq</code>
     
     <code>cutadapt -u 20 -u -10 -o buffalo_colombia/SRR11041080_2.cut.fastq buffalo_colombia/SRR11041080_2.fastq</code>
-    
-- O parâmetro <code>-q</code> (ou <code>--quality-cutoff</code>) será usado para cortar as bases de baixa qualidade das leituras. E o parâmetro <code>-m</code> (ou <code>--minimum-length</code>) será usado para descartar as sequências curtas demais:
+
+- Será que a qualidade melhorou? Vamos rodar o FastQC novamente para checar:
+
+    <code>fastqc buffalo_colombia/SRR11041080_1.q20.fastq buffalo_colombia/SRR11041080_2.q20.fastq</code>
+
+- Dá pra melhorar ainda mais né? Então vamos rodar o cutadapt novamente nesses dados. 
+
+- Agora podemos lidar com os dois arquivos ao mesmo tempo.  O parâmetro <code>-q</code> (ou <code>--quality-cutoff</code>) será usado para cortar as bases de baixa qualidade das leituras. E o parâmetro <code>-m</code> (ou <code>--minimum-length</code>) será usado para descartar as sequências curtas demais. Em metagenomas paired-end, devemos fornecer dois arquivos de entrada e um segundo arquivo de saída com o parâmetro <code>-p</code> (ou <code>--pair-output</code>). Então o comando fica assim:
 
     <code>cutadapt -q 20 -m 30 -o buffalo_colombia/SRR11041080_1.q20.fastq -p buffalo_colombia/SRR11041080_2.q20.fastq buffalo_colombia/SRR11041080_1.cut.fastq buffalo_colombia/SRR11041080_2.cut.fastq</code>
-
 
 - Para saber se essa etapa funcionou, podemos chamar novamente o programa [FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/) seguido do output do comando acima:
 
