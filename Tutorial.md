@@ -70,7 +70,7 @@
 
     <code>fastqc buffalo_colombia/SRR11041080_1.q20.fastq buffalo_colombia/SRR11041080_2.q20.fastq</code>
     
-- Se estamos satisfeitos com o resultado do fastqc, podemos seguir para as próximas análises.
+- Se estamos satisfeitxs com o resultado do fastqc, podemos seguir para as próximas análises.
    
 <h3> Análise Taxonômica </h3>
 
