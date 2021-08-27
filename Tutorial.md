@@ -58,7 +58,7 @@
     
     <code>cutadapt -u 20 -u -10 -o buffalo_colombia/SRR11041080_2.cut.fastq buffalo_colombia/SRR11041080_2.fastq</code>
 
-- Será que a qualidade melhorou? Vamos rodar o FastQC novamente para checar:
+- Será que a qualidade melhorou? Vamos rodar o [FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/) novamente para checar:
 
     <code>fastqc buffalo_colombia/SRR11041080_1.q20.fastq buffalo_colombia/SRR11041080_2.q20.fastq</code>
 
