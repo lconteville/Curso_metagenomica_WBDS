@@ -80,7 +80,7 @@
     
 - Como nossos arquivos são <code>.fastq</code>, devemos avisar isso ao programa com o parâmetro <code>--input_type</code>. Os dois arquivos que serão usados como input nesse programa devem estar separados por uma vírgula. Utilizaremos o sinal <code>></code> para mandar o resultado do comando para o arquivo <code>rumen_metaphlan.txt</code> .Dessa forma, o comando final fica assim:
 
-    <code>metaphlan --input_type fastq SRR11041080_1.q20_2.fastq,SRR11041080_2.q20_2.fastq --bowtie2out SRR11041080_bowtie2out.txt > rumen_metaphlan.txt</code>
+    <code>metaphlan --input_type fastq buffalo_colombia/SRR11041080_1.q20.fastq,buffalo_colombia/SRR11041080_2.q20.fastq --bowtie2out buffalo_colombia/SRR11041080_bowtie2out.txt > buffalo_colombia/rumen_metaphlan.txt</code>
     
  - Para dar uma olhada no resultado, podemos utilizar o comando <code>cat</code> seguido do nome do output do metaphlan. O comando irá ler o conteúdo do arquivo e exibi-lo no terminal.
  
