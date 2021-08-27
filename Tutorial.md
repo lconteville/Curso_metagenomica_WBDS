@@ -84,7 +84,7 @@
     
  - Para dar uma olhada no resultado, podemos utilizar o comando <code>cat</code> seguido do nome do output do metaphlan. O comando irá ler o conteúdo do arquivo e exibi-lo no terminal.
  
- <code> cat rumen_metaphlan.txt</code>
+    <code> cat rumen_metaphlan.txt</code>
  
  - Podemos ver que o arquivo possui um cabeçalho de 4 linhas iniciadas por <code> # </code>. A primeira linha lista o banco de dados de genes marcadores que o MetaPhlAn usa. A segunda linha lista o comando que foi utilizado para gerá-lo. A quarta linha contém os cabeçalhos das colunas que estão abaixo.
  - A primeira coluna lista os clados, de reinos (Bactérias, Archaea, etc.) a espécies:
