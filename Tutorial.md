@@ -99,11 +99,11 @@
  
     <code>grep f__ caatinga_metaphlan.txt | grep -v g__</code>
  
- - Para facilitar, o metaphlan já foi rodado nas outras amostras, para visualizar o resultado, podemos usar o cat e seguido do nome dos outros arquivos.
+ - Para facilitar, o metaphlan já foi rodado nas outras amostras, para visualizar o resultado, podemos usar o comando <code>less</code> seguido do nome dos outros arquivos.
 
 <h3> Análise Funcional </h3>
 
-- Agora que sabemos quais táxons estão nas nossas amostras, vamos buscar o que eles podem estar fazendo nelas. O [HUMAnN](https://huttenhower.sph.harvard.edu/humann/) (HMP Unified Metabolic Analysis Network) é um programa que traça identifica vias metabólicas microbianas e outras funções moleculares nos dados.
+- Agora que sabemos quais táxons estão nas nossas amostras, vamos buscar que funções esse táxons podem estar executando. O [HUMAnN](https://huttenhower.sph.harvard.edu/humann/) (HMP Unified Metabolic Analysis Network) é um programa que traça identifica vias metabólicas microbianas e outras funções moleculares nos dados.
 
 - OBS: Apesar do nome ser HUMAnN, ele é apropriado para qualquer tipo de comunidade microbiana, não apenas o microbioma humano (o nome "HUMAnN" é um produto histórico das origens do método no [Projeto Microbioma Humano](https://www.hmpdacc.org/)).
 
@@ -113,7 +113,7 @@
 
     <code>humann -h</code>
 
-- XXXXXXXXX
+- Devemos fornecer para o HUMAnN um arquivo de entrada (<code>-i</code>) e um arquivo de saída (<code>-o</code>).
     
     <code>humann XXXXXXXXXXXXX</code>
     
