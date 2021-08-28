@@ -107,15 +107,15 @@
 
 - Agora que sabemos quais táxons estão nas nossas amostras, vamos buscar que funções esse táxons podem estar executando. O [HUMAnN](https://huttenhower.sph.harvard.edu/humann/) (HMP Unified Metabolic Analysis Network) é um programa que traça identifica vias metabólicas microbianas e outras funções moleculares nos dados.
 
-- OBS: Apesar do nome ser HUMAnN, ele é apropriado para qualquer tipo de comunidade microbiana, não apenas o microbioma humano (o nome "HUMAnN" é um produto histórico das origens do método no [Projeto Microbioma Humano](https://www.hmpdacc.org/)).
+- OBS: Apesar do nome ser [HUMAnN](https://huttenhower.sph.harvard.edu/humann/), ele é apropriado para qualquer tipo de comunidade microbiana, não apenas o microbioma humano (o nome "HUMAnN" é um produto histórico das origens do método no [Projeto Microbioma Humano](https://www.hmpdacc.org/)).
 
 - Como os bancos de dados de sequência de nucleotídeos e proteínas em escala real necessários para perfis de metagenoma são muito grandes (vários GBs), neste workshop usaremos (pequenos) bancos de dados de demonstração. Tanto a banco de dados demonstrativo quanto o em escala real podem ser baixados usando o comando <code>humann_databases</code>. O download já foi realizado e portanto o comando <code>humann_databases</code> não precisa ser executado.
 
-- Execute o comando abaixo para ver todas os parâmetros possíveis e necessários para rodar o HUMAnN.
+- Execute o comando abaixo para ver todas os parâmetros possíveis e necessários para rodar o [HUMAnN](https://huttenhower.sph.harvard.edu/humann/).
 
     <code>humann -h</code>
 
-- Devemos fornecer para o HUMAnN um arquivo de entrada (<code>-i</code>) e um arquivo de saída (<code>-o</code>).
+- Devemos fornecer um arquivo de entrada (<code>-i</code>) e um arquivo de saída (<code>-o</code>).
     
     <code>humann XXXXXXXXXXXXX</code>
     
