@@ -82,13 +82,15 @@
 
     <code>metaphlan --input_type fastq caatinga/19_S19_L003_R1_001.q20.fastq,caatinga/19_S19_L003_R1_001.q20.fastq --bowtie2out caatinga/caatinga_bowtie2out.txt > caatinga/caatinga_metaphlan.txt</code>
     
-- O comando acima gerará 2 arquivos de texto. O arquivo <code>caatinga_bowtie2out.txt</code> XXXXXXXXXXXXXXXXXXXXXXXXXXXX. E o arquivo <code>caatinga_metaphlan.txt</code>. Para dar uma olhada nos resultados, podemos utilizar o comando <code>less</code> seguido do nome do arquivo. O comando irá exibir o conteúdo do arquivo e você pode usar as teclas para cima e para baixo no teclado e fazer a paginação do arquivo.
+- O comando acima gerará 2 arquivos de texto. Para dar uma olhada nos resultados, podemos utilizar o comando <code>less</code> seguido do nome do arquivo. O comando irá exibir o conteúdo do arquivo e você pode usar as teclas para cima e para baixo no teclado e fazer a paginação do arquivo.
  
     <code> less caatinga_bowtie2out.txt</code>
  
     <code> less caatinga_metaphlan.txt</code>
- 
-- Podemos ver que o segundo arquivo possui um cabeçalho de 4 linhas iniciadas por <code> # </code>. A primeira linha lista o banco de dados de genes marcadores que o MetaPhlAn usa. A segunda linha lista o comando que foi utilizado para gerá-lo. A quarta linha contém os cabeçalhos das colunas que estão abaixo.
+    
+- O arquivo <code>caatinga_bowtie2out.txt</code> contém resultados do mapeamento feito pelo metaphlan listados um por linha em colunas separadas por nome da sequência metagenômica e a referência para qual esta sequência mapeou. 
+
+- O arquivo <code>caatinga_metaphlan.txt</code> possui um cabeçalho de 4 linhas iniciadas por <code> # </code>. A primeira linha lista o banco de dados de genes marcadores que o MetaPhlAn usa. A segunda linha lista o comando que foi utilizado para gerá-lo. A quarta linha contém os cabeçalhos das colunas que estão abaixo.
 
 - A primeira coluna lista os clados, de reinos (Bactérias, Archaea, etc.) a espécies:
     Reino: k__, Filo: p__, Classe: c__, Ordem: o__, Família: f__, Gênero: g__, Espécie: s__
