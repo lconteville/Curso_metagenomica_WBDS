@@ -34,7 +34,8 @@
 
 - Com o FastQC instalado, só precisamos chamá-lo seguido de um arquivo fastq:
 
-    <code>fastqc SRR8732219_1.fastq</code>
+    <code>fastqc  buffalo_colombia/SRR11041080_1.fastq</code>
+    <code>fastqc  buffalo_colombia/SRR11041080_2.fastq</code>
 
 - O comando acima gera um arquivo <code>.html</code> e um arquivo <code>.zip</code>. O arquivo <code>.html</code> contêm um relatório final com todas as análises de qualidade realizadas. O arquivo <code>.zip</code> é um arquivo compactado das figuras e textos que são resultados das análises. As imagens no arquivo <code>.zip</code> são as mesmas que formam o arquivo <code>.html</code>.
 
@@ -80,7 +81,7 @@
     
 - Como nossos arquivos são <code>.fastq</code>, devemos avisar isso ao programa com o parâmetro <code>--input_type</code>. Os dois arquivos que serão usados como input nesse programa devem estar separados por uma vírgula. Utilizaremos o sinal <code>></code> para mandar o resultado do comando para o arquivo <code>caatinga_metaphlan.txt</code>. Dessa forma, o comando final fica assim:
 
-    <code>metaphlan --input_type fastq caatinga/19_S19_L003_R1_001.q20.fastq,caatinga/19_S19_L003_R1_001.q20.fastq --bowtie2out caatinga/caatinga_bowtie2out.txt > caatinga/caatinga_metaphlan.txt</code>
+    <code>metaphlan --input_type fastq caatinga/19_S19_L003_R1_001.q20.fastq,caatinga/19_S19_L003_R2_001.q20.fastq --bowtie2out caatinga/caatinga_bowtie2out.txt > caatinga/caatinga_metaphlan.txt</code>
     
 - O comando acima gerará 2 arquivos de texto. Para dar uma olhada nos resultados, podemos utilizar o comando <code>less</code> seguido do nome do arquivo. O comando irá exibir o conteúdo do arquivo e você pode usar as teclas para cima e para baixo no teclado e fazer a paginação do arquivo.
  
@@ -105,21 +106,18 @@
 
 <h3> Análise Funcional </h3>
 
-- Agora que sabemos quais táxons estão nas nossas amostras, vamos buscar que funções esse táxons podem estar executando. O [HUMAnN](https://huttenhower.sph.harvard.edu/humann/) (HMP Unified Metabolic Analysis Network) é um programa que traça identifica vias metabólicas microbianas e outras funções moleculares nos dados.
+- Agora que sabemos quais táxons estão nas nossas amostras, vamos buscar que funções esse táxons podem estar executando. O [SUPER-FOCUS](https://github.com/metageni/SUPER-FOCUS)(SUbsystems Profile by databasE Reduction using FOCUS) usa o banco de dados SEED para relatar os subsistemas presentes nos metagenomas e traçar o perfil de suas abundâncias.
+- 
 
-- OBS: Apesar do nome ser [HUMAnN](https://huttenhower.sph.harvard.edu/humann/), ele é apropriado para qualquer tipo de comunidade microbiana, não apenas o microbioma humano (o nome "HUMAnN" é um produto histórico das origens do método no [Projeto Microbioma Humano](https://www.hmpdacc.org/)).
-
-- Como os bancos de dados de sequência de nucleotídeos e proteínas em escala real necessários para perfis de metagenoma são muito grandes (vários GBs), neste workshop usaremos (pequenos) bancos de dados de demonstração. Tanto a banco de dados demonstrativo quanto o em escala real podem ser baixados usando o comando <code>humann_databases</code>. O download já foi realizado e portanto o comando <code>humann_databases</code> não precisa ser executado.
-
-- Execute o comando abaixo para ver todas os parâmetros possíveis e necessários para rodar o [HUMAnN](https://huttenhower.sph.harvard.edu/humann/).
+- Execute o comando abaixo para ver todas os parâmetros possíveis e necessários para rodar o SUPER-FOCUS XXXXXXXXXX.
 
     <code>humann -h</code>
 
 - Devemos fornecer um arquivo de entrada (<code>-i</code>) e um arquivo de saída (<code>-o</code>).
     
-    <code>humann XXXXXXXXXXXXX</code>
+    <code>python3 superfocus.py -q yanomami/menor/ -dir yanomami/superfocus/ -t 2 -a diamond -db DB_90</code>
     
-- O comando acima gerará três arquivos.
+- O comando acima gerará seis arquivos.
 
 
 <h3> Análises Estatísticas</h3>
