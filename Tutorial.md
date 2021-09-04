@@ -86,7 +86,7 @@
 
 - Para saber se essa etapa funcionou, podemos chamar novamente o programa [FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/) seguido do output do comando acima:
 
-    <code>fastqc rumen_1.q20.fastq rumen_2.q20.fastq</code>
+    <code>fastqc rumen_*.q20.fastq</code>
     
  - Quando rodar podemos visualizar os <code>.html</code> gerados:
 
