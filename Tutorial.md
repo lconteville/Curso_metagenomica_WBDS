@@ -19,6 +19,7 @@
 - Para facilitar, o nome desses arquivos foi mudado com o comando abaixo:
 
     <code>mv SRR11041080_1.fastq rumen_1.fastq</code>
+    
     <code>mv SRR11041080_2.fastq rumen_2.fastq</code>
 
 <h3> Arquivos Fastq </h3>
