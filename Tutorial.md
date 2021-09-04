@@ -143,7 +143,7 @@
     
 - Agora vamos criar um heatmap com <code>hclust2</code> usando esse arquivo que acabamos de gerar: 
 
-    <code>hclust2.py -i merged_metaphlan_filos.txt -o hclust.png --f_dist_f braycurtis --s_dist_f braycurtis --cell_aspect_ratio 0.5 -l --flabel_size 10 --slabel_size 10 --max_flabel_len 100 --max_slabel_len 100 --minv 0.1 --dpi 300</code>
+    <code>hclust2.py -i merge_metaphlan_filos.txt -o hclust.png --f_dist_f braycurtis --s_dist_f braycurtis --cell_aspect_ratio 0.5 -l --flabel_size 10 --slabel_size 10 --max_flabel_len 100 --max_slabel_len 100 --minv 0.1 --dpi 300</code>
 
 <h3> Análise Funcional </h3>
 
