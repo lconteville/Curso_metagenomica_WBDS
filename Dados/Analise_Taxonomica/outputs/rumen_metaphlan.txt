@@ -1,0 +1,12 @@
+#mpa_v30_CHOCOPhlAn_201901
+#/home/lconteville/.local/bin/metaphlan --input_type fastq buffalo_colombia/SRR11041080_1.q20.fastq,buffalo_colombia/SRR11041080_2.q20.fastq --bowtie2out buffalo_colombia/SRR11041080_bowtie2out.txt
+#SampleID	Metaphlan_Analysis
+#clade_name	NCBI_tax_id	relative_abundance	additional_species
+k__Bacteria	2	100.0	
+k__Bacteria|p__Bacteroidetes	2|976	100.0	
+k__Bacteria|p__Bacteroidetes|c__Bacteroidia	2|976|200643	100.0	
+k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales	2|976|200643|171549	100.0	
+k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Prevotellaceae	2|976|200643|171549|171552	100.0	
+k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Prevotellaceae|g__Prevotella	2|976|200643|171549|171552|838	100.0	
+k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Prevotellaceae|g__Prevotella|s__Prevotella_ruminicola	2|976|200643|171549|171552|838|839	87.87509	k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Prevotellaceae|g__Prevotella|s__Prevotella_sp_khp7,k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Prevotellaceae|g__Prevotella|s__Prevotella_sp_khp1
+k__Bacteria|p__Bacteroidetes|c__Bacteroidia|o__Bacteroidales|f__Prevotellaceae|g__Prevotella|s__Prevotella_bryantii	2|976|200643|171549|171552|838|77095	12.12491	
