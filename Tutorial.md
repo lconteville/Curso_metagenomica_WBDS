@@ -133,7 +133,9 @@
  
     <code>grep f__ caatinga_metaphlan.txt | grep -v g__</code>
  
- - Para facilitar, o metaphlan já foi rodado nas outras amostras, para visualizar o resultado, podemos usar o comando <code>less</code> seguido do nome dos outros arquivos.
+ - Depois analizaremos os resultados na etapa de Análises estatísticas e precisaremos de um arquivo que tenha os resultados de todos os metagenomas. Para gerar este arquivo, podemos usar um script do pacote do metaphlan chamado <code>merge_metaphlan_tables.py</code>. Para utilizá-lo só precisamos chamá-lo seguido dos arquivos que queremos juntar:
+
+    <code>python3 merge_metaphlan_tables.py rumen_metaphlan.txt caatinga_metaphlan.txt  yanomami_metaphlan.txt praia_metaphlan.txt > merged_metaphlan.txt</code>
 
 <h3> Análise Funcional </h3>
 
