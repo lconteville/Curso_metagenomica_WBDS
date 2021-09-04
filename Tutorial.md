@@ -157,7 +157,7 @@
     
     <code>python3 superfocus.py -q yanomami/menor/ -dir yanomami/superfocus/ -a diamond -db DB_90</code>
     
-- O comando acima gerará seis arquivos.
+- O comando acima gerará seis arquivos, sendo cinco arquivos <code>.xls</code> e um arquivo <code>.m8</code>
 
 
 <h3> Análises Estatísticas</h3>
