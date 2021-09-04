@@ -41,6 +41,7 @@
 - Com o FastQC instalado, só precisamos chamá-lo seguido de um arquivo fastq:
 
     <code>fastqc  rumen_1.fastq</code>
+    
     <code>fastqc  rumen_2.fastq</code>
 
 - O comando acima gera um arquivo <code>.html</code> e um arquivo <code>.zip</code>. O arquivo <code>.html</code> contêm um relatório final com todas as análises de qualidade realizadas. O arquivo <code>.zip</code> é um arquivo compactado das figuras e textos que são resultados das análises. As imagens no arquivo <code>.zip</code> são as mesmas que formam o arquivo <code>.html</code>. Para abrir um arquivo <code>.html</code> pelo terminal podemos usar a ferramenta [xdg-open](https://linux.die.net/man/1/xdg-open), que normalmente já vem instalada, seguida do nome do arquivo:
