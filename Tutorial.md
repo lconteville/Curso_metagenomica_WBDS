@@ -7,20 +7,25 @@
 
 <h3> Download dos Metagenomas (já foi executado)</h3>
 
-- Para conseguir baixar e analisar esses metagenomas, primeiramente precisamos de seu número de acesso (ex: SRR8732219) ou do número de acesso do projeto que ele pertence (ex: BioProject PRJNA527208). Normalmente esses números são apresentados no artigo a qual eles estão associados.
+- Para conseguir baixar e analisar esses metagenomas, primeiramente precisamos de seu número de acesso (ex: SRR11041080) ou do número de acesso do projeto que ele pertence (ex: BioProject PRJNA605425). Normalmente esses números são apresentados no artigo a qual eles estão associados.
 - Se os metagenomas foram depositados no NCBI, eles ficam armazenados no [Sequence Read Archive (SRA)](https://www.ncbi.nlm.nih.gov/sra), um repositório público para dados de sequenciamento de DNA.
 - Para baixar algum dado do SRA, podemos usar o [SRA toolkit](https://ncbi.github.io/sra-tools/), que é uma coleção de ferramentas e bibliotecas para este fim. Nesta coleção existe a ferramenta <code>fasterq-dump</code>, que foi utilizada para baixar os metagenomas analisados neste workshop.
 - Com o SRA toolkit instalado, só precisamos chamar a ferramenta fasterq-dump seguida do número de acesso do metagenoma de interesse:
     
-    <code>fasterq-dump SRR8732219</code>
+    <code>fasterq-dump SRR11041080</code>
     
-- O comando acima gera dois arquivos <code>.fastq</code>, que referem-se às sequências pareadas do metagenoma SRR8732219.
+- O comando acima gera dois arquivos <code>.fastq</code>, que referem-se às sequências pareadas do metagenoma SRR11041080.
+
+- Para facilitar, o nome desses arquivos foi mudado com o comando abaixo:
+
+    <code>mv SRR11041080_1.fastq rumen_1.fastq</code>
+    <code>mv SRR11041080_2.fastq rumen_2.fastq</code>
 
 <h3> Arquivos Fastq </h3>
 
 - Vamos dar uma olhada nesses arquivos Fastq? Para ler um arquivo pelo terminal, podemos usar o comando <code>head</code>. Esse comando mostra no terminal o conteúdo das 10 primeiras linhas de um arquivo.
 
-    <code>head SRR8732219_1.fastq</code>
+    <code>head rumen_1.fastq</code>
 
 - Os Fastq são arquivos de texto em que as informações sobre cada sequência estão dispostas em 4 linhas:
     * 1ª linha: O nome da sequência.
@@ -34,8 +39,8 @@
 
 - Com o FastQC instalado, só precisamos chamá-lo seguido de um arquivo fastq:
 
-    <code>fastqc  buffalo_colombia/SRR11041080_1.fastq</code>
-    <code>fastqc  buffalo_colombia/SRR11041080_2.fastq</code>
+    <code>fastqc  rumen_1.fastq</code>
+    <code>fastqc  rumen_2.fastq</code>
 
 - O comando acima gera um arquivo <code>.html</code> e um arquivo <code>.zip</code>. O arquivo <code>.html</code> contêm um relatório final com todas as análises de qualidade realizadas. O arquivo <code>.zip</code> é um arquivo compactado das figuras e textos que são resultados das análises. As imagens no arquivo <code>.zip</code> são as mesmas que formam o arquivo <code>.html</code>.
 
@@ -55,21 +60,21 @@
 
 - Como aqui estamos analisando dados de diversos sequenciamentos, vamos cortar direto as bases que parecem "enviesadas" no começo e final das sequências. Para isso podemos usar o parâmetro <code>-u</code> (ou <code>--cut</code>). Neste parâmetro, se o número fornecido for positivo, as bases são removidas do início, e se for negativo, são removidas do final. O parâmetro <code>-o</code> deve ser usado para informar o nome do arquivo de saída. Dessa forma, o comando final fica assim:
 
-    <code>cutadapt -u 20 -u -10 -o buffalo_colombia/SRR11041080_1.cut.fastq buffalo_colombia/SRR11041080_1.fastq</code>
+    <code>cutadapt -u 20 -u -10 -o rumen_1.cut.fastq rumen_1.fastq</code>
     
-    <code>cutadapt -u 20 -u -10 -o buffalo_colombia/SRR11041080_2.cut.fastq buffalo_colombia/SRR11041080_2.fastq</code>
+    <code>cutadapt -u 20 -u -10 -o rumen_2.cut.fastq rumen_2.fastq</code>
 
 - Será que a qualidade melhorou? Vamos rodar o [FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/) novamente para checar:
 
-    <code>fastqc buffalo_colombia/SRR11041080_1.q20.fastq buffalo_colombia/SRR11041080_2.q20.fastq</code>
+    <code>fastqc rumen_1.q20.fastq rumen_2.q20.fastq</code>
 
 - Dá pra melhorar ainda mais né? Então vamos rodar o cutadapt novamente nesses dados. Agora podemos lidar com os dois arquivos ao mesmo tempo.  O parâmetro <code>-q</code> (ou <code>--quality-cutoff</code>) será usado para cortar as bases de baixa qualidade das leituras. E o parâmetro <code>-m</code> (ou <code>--minimum-length</code>) será usado para descartar as sequências curtas demais. Em metagenomas paired-end, devemos fornecer dois arquivos de entrada e um segundo arquivo de saída com o parâmetro <code>-p</code> (ou <code>--pair-output</code>). Então o comando fica assim:
 
-    <code>cutadapt -q 20 -m 30 -o buffalo_colombia/SRR11041080_1.q20.fastq -p buffalo_colombia/SRR11041080_2.q20.fastq buffalo_colombia/SRR11041080_1.cut.fastq buffalo_colombia/SRR11041080_2.cut.fastq</code>
+    <code>cutadapt -q 20 -m 30 -o rumen_1.q20.fastq -p rumen_2.q20.fastq rumen_1.cut.fastq rumen_2.cut.fastq</code>
 
 - Para saber se essa etapa funcionou, podemos chamar novamente o programa [FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/) seguido do output do comando acima:
 
-    <code>fastqc buffalo_colombia/SRR11041080_1.q20.fastq buffalo_colombia/SRR11041080_2.q20.fastq</code>
+    <code>fastqc rumen_1.q20.fastq rumen_2.q20.fastq</code>
     
 - Se estamos satisfeitxs com o resultado do fastqc, podemos seguir para as próximas análises.
    
