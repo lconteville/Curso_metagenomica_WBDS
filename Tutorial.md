@@ -45,9 +45,9 @@
 
 - O comando acima gera um arquivo <code>.html</code> e um arquivo <code>.zip</code>. O arquivo <code>.html</code> contêm um relatório final com todas as análises de qualidade realizadas. O arquivo <code>.zip</code> é um arquivo compactado das figuras e textos que são resultados das análises. As imagens no arquivo <code>.zip</code> são as mesmas que formam o arquivo <code>.html</code>. Para abrir um arquivo <code>.html</code> pelo terminal podemos usar a ferramenta xdg-open, que normalmente já vem instalada, seguida do nome do arquivo:
 
-    <code>xdg-open rumen_1.cut_fastqc.html </code>
+    <code>xdg-open rumen_1_fastqc.html </code>
     
-    <code>xdg-open rumen_2.cut_fastqc.html </code>
+    <code>xdg-open rumen_2_fastqc.html </code>
 
 - Pelos gráficos gerados pelo FastQC podemos ter uma ideia geral de como estão as nossas sequências. No site do FastQC são fornecidos exemplos de arquivos html de um metagenoma com [alta qualidade](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/good_sequence_short_fastqc.html) e [baixa qualidade](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/bad_sequence_fastqc.html).
 
