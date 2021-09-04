@@ -80,9 +80,9 @@
     
     <code>xdg-open rumen_2.cut_fastqc.html </code>
 
-- Dá pra melhorar ainda mais né? Então vamos rodar o cutadapt novamente nesses dados. Agora podemos lidar com os dois arquivos ao mesmo tempo.  O parâmetro <code>-q</code> (ou <code>--quality-cutoff</code>) será usado para cortar as bases de baixa qualidade das leituras. E o parâmetro <code>-m</code> (ou <code>--minimum-length</code>) será usado para descartar as sequências curtas demais. Em metagenomas paired-end, devemos fornecer dois arquivos de entrada e um segundo arquivo de saída com o parâmetro <code>-p</code> (ou <code>--pair-output</code>). Então o comando fica assim:
+- Dá pra melhorar ainda mais né? Então vamos rodar o cutadapt novamente nesses dados. Agora podemos lidar com os dois arquivos ao mesmo tempo.  O parâmetro <code>-q</code> (ou <code>--quality-cutoff</code>) será usado para cortar as bases de baixa qualidade das leituras. E o parâmetro <code>-m</code> (ou <code>--minimum-length</code>) será usado para descartar as sequências curtas demais. Em metagenomas paired-end, devemos fornecer dois arquivos de entrada e um segundo arquivo de saída com o parâmetro <code>-p</code> (ou <code>--pair-output</code>). Também usaremos o parâmetro <code>--pair-filter = any</code>, o que significa que o par de uma sequência será descartado se ela atender ao critério de filtragem. Então o comando fica assim:
 
-    <code>cutadapt -q 20 -m 30 -o rumen_1.q20.fastq -p rumen_2.q20.fastq rumen_1.cut.fastq rumen_2.cut.fastq</code>
+    <code>cutadapt -q 20 -m 30 -o rumen_1.q20.fastq -p rumen_2.q20.fastq rumen_1.cut.fastq rumen_2.cut.fastq --pair-filter=any</code>
 
 - Para saber se essa etapa funcionou, podemos chamar novamente o programa [FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/) seguido do output do comando acima:
 
