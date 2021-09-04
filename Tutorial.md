@@ -36,6 +36,10 @@
 
 <h3> Análise de Qualidade </h3>
 
+- Vamos começar acessando a pasta que estão nossos dados com o comando <code>cd</code>:
+
+    <code> cd Desktop/Dados/Dados_Brutos</code>
+
 - Para analisar a qualidade das sequências do Fastq, vamos utilizar o programa [FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/), que fornece uma maneira simples de verificar a qualidade de sequências provenientes de sequenciamento de alto rendimento.
 
 - Com o FastQC instalado, só precisamos chamá-lo seguido de um arquivo fastq:
@@ -97,6 +101,10 @@
 - Se estamos satisfeitxs com o resultado do fastqc, podemos seguir para as próximas análises.
    
 <h3> Análise Taxonômica </h3>
+
+- Primeiro vamos sair da pasta Dados_Brutos e acessar a pasta que estão nossos outros dados com o comando <code>cd</code>:
+
+    <code> cd ../Analise_Taxonômica</code>
 
 - Nesta etapa identificaremos quais organismos estão nas nossas amostras com o programa [MetaPhlAn](http://huttenhower.sph.harvard.edu/metaphlan) (Metagenomic Phylogenetic Analysis). A classificação feita pelo [MetaPhlAn](http://huttenhower.sph.harvard.edu/metaphlan) baseia-se em seu banco de dados de genes marcadores únicos identificados em genomas de referência de bactérias, arquéias, vírus e eucariotos. Execute o comando abaixo para ver todos os parâmetros que podem ser usados no metaphlan.
 
