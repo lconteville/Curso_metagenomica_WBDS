@@ -13,7 +13,7 @@
   - Análise da Qualidade das Sequências (Programa FastQC)
   - Trimagem e Filtragem (Programa Cutadapt)
   - Análise Taxonômica (Programa MetaPhlAn)
-  - Análise Funcional (Programa HUMAnN)
+  - Análise Funcional (Programa SUPER-FOCUS)
   - Análises Estatísticas
   
 Contate-me em caso de dúvidas pelo endereço: lilianeconteville@gmail.com
