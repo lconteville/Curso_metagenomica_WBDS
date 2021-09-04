@@ -6,7 +6,8 @@
 
 **1. Aulas Teóricas**
   - Introdução à Metagenômica
-  - Metodologia da abordagem de Metagenômica
+  - Metodologia in vitro da abordagem de Metagenômica
+  - Sequenciamento
   
 **2. Aulas Teóricas + Práticas**
   - Arquivo FastQ
@@ -29,4 +30,4 @@ Toda a parte prática do curso poderá ser executada pela Máquina Virtual forne
 
 <h2>Linux OS</h2>
 
-Se x alunx já tiver acesso a algum computador com o sistema operacional Linux instalado e algum conhecimento prévio em intalação, podem baixar diretamente os programas que serão utilizados no workshop. Mais detalhes em: [Programas.md](./Programas.md)
+Alunxs com acesso a algum computador com o sistema operacional Linux instalado e algum conhecimento prévio em instalação de programas, podem baixar e instalar diretamente os programas que serão utilizados no workshop. Mais detalhes em: [Programas.md](./Programas.md)
