@@ -104,7 +104,7 @@
     
 - Como nossos arquivos são <code>.fastq</code>, devemos avisar isso ao programa com o parâmetro <code>--input_type</code>. Os dois arquivos que serão usados como input nesse programa devem estar separados por uma vírgula. Utilizaremos o sinal <code>></code> para mandar o resultado do comando para o arquivo <code>caatinga_metaphlan.txt</code>. Dessa forma, o comando final fica assim:
 
-    <code>metaphlan --input_type fastq caatinga/19_S19_L003_R1_001.q20.fastq,caatinga/19_S19_L003_R2_001.q20.fastq --bowtie2out caatinga/caatinga_bowtie2out.txt > caatinga/caatinga_metaphlan.txt</code>
+    <code>metaphlan --input_type fastq caatinga_1.q20.fastq,caatinga_2.q20.fastq --bowtie2out caatinga_bowtie2out.txt > caatinga_metaphlan.txt</code>
     
 - O comando acima gerará 2 arquivos de texto. Para dar uma olhada nos resultados, podemos utilizar o comando <code>less</code> seguido do nome do arquivo. O comando irá exibir o conteúdo do arquivo e você pode usar as teclas para cima e para baixo no teclado e fazer a paginação do arquivo.
  
