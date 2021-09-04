@@ -43,7 +43,7 @@
     <code>fastqc  rumen_1.fastq</code>
     <code>fastqc  rumen_2.fastq</code>
 
-- O comando acima gera um arquivo <code>.html</code> e um arquivo <code>.zip</code>. O arquivo <code>.html</code> contêm um relatório final com todas as análises de qualidade realizadas. O arquivo <code>.zip</code> é um arquivo compactado das figuras e textos que são resultados das análises. As imagens no arquivo <code>.zip</code> são as mesmas que formam o arquivo <code>.html</code>. Para abrir um arquivo <code>.html</code> pelo terminal podemos usar a ferramenta xdg-open, que normalmente já vem instalada, seguida do nome do arquivo:
+- O comando acima gera um arquivo <code>.html</code> e um arquivo <code>.zip</code>. O arquivo <code>.html</code> contêm um relatório final com todas as análises de qualidade realizadas. O arquivo <code>.zip</code> é um arquivo compactado das figuras e textos que são resultados das análises. As imagens no arquivo <code>.zip</code> são as mesmas que formam o arquivo <code>.html</code>. Para abrir um arquivo <code>.html</code> pelo terminal podemos usar a ferramenta [xdg-open](https://linux.die.net/man/1/xdg-open), que normalmente já vem instalada, seguida do nome do arquivo:
 
     <code>xdg-open rumen_1_fastqc.html </code>
     
@@ -71,7 +71,13 @@
 
 - Será que a qualidade melhorou? Vamos rodar o [FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/) novamente para checar:
 
-    <code>fastqc rumen_1.q20.fastq rumen_2.q20.fastq</code>
+    <code>fastqc rumen_1.cut.fastq rumen_2.cut.fastq</code>
+    
+- Quando rodar podemos visualizar os <code>.html</code>:
+
+    <code>xdg-open rumen_1.cut_fastqc.html </code>
+    
+    <code>xdg-open rumen_2.cut_fastqc.html </code>
 
 - Dá pra melhorar ainda mais né? Então vamos rodar o cutadapt novamente nesses dados. Agora podemos lidar com os dois arquivos ao mesmo tempo.  O parâmetro <code>-q</code> (ou <code>--quality-cutoff</code>) será usado para cortar as bases de baixa qualidade das leituras. E o parâmetro <code>-m</code> (ou <code>--minimum-length</code>) será usado para descartar as sequências curtas demais. Em metagenomas paired-end, devemos fornecer dois arquivos de entrada e um segundo arquivo de saída com o parâmetro <code>-p</code> (ou <code>--pair-output</code>). Então o comando fica assim:
 
