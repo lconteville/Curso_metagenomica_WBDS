@@ -149,13 +149,17 @@
 
 <h3> Análise Funcional </h3>
 
-- Agora que sabemos quais táxons estão nas nossas amostras, vamos buscar que funções esse táxons podem estar executando. O [SUPER-FOCUS](https://github.com/metageni/SUPER-FOCUS)(SUbsystems Profile by databasE Reduction using FOCUS) usa o banco de dados [SEED](https://www.theseed.org/wiki/Home_of_the_SEED) para relatar os subsistemas presentes nos metagenomas e traçar o perfil de suas abundâncias.
+- Vamos sair da pasta <code>Analise_Taxonomica/outputs</code> e acessar a pasta que estão nossos outros dados com o comando <code>cd</code>:
+
+    <code> cd ../../Analise_Funcional</code>
+
+- Agora que sabemos quais táxons estão nas nossas amostras, vamos buscar quais funções esses táxons podem estar executando. O [SUPER-FOCUS](https://github.com/metageni/SUPER-FOCUS)(SUbsystems Profile by databasE Reduction using FOCUS) usa o banco de dados [SEED](https://www.theseed.org/wiki/Home_of_the_SEED) para caracterizar os subsistemas presentes nos metagenomas.
 
 - Execute o comando abaixo para ver todas os parâmetros possíveis e necessários para rodar o [SUPER-FOCUS](https://github.com/metageni/SUPER-FOCUS).
 
     <code>python3 superfocus.py -h</code>
 
-- Devemos fornecer o caminho do diretório em que estão os nossos arquivos fastq (<code>-q</code>) e o caminho para o diretório em que serão salvos os arquivos de saída (<code>-dir</code>). O SUPER-FOCUS permite realizarmos o alinhamento com 3 alinhadores diferentes: DIAMOND, RAPSearch2 e BLAST. Com o parâmetro <code>-a</code> indicamos qual deles vamos usar. No [github](https://github.com/metageni/SUPER-FOCUS) do SUPER-FOCUS, os autores deixaram recomendações para o uso de cada alinhador. E por último, temos o parâmetro <code>-db</code> para informar a base de dados utilizada. Dessa forma, o comando final fica assim:
+- Utilizamos <code>-q</code> para fornecer o caminho do diretório em que estão os nossos arquivos fastq e <code>-dir</code> para fornecer o caminho do diretório em que serão salvos os arquivos de saída. O SUPER-FOCUS permite realizarmos o alinhamento com 3 alinhadores diferentes: DIAMOND, RAPSearch2 e BLAST. Com o parâmetro <code>-a</code> indicamos qual deles vamos usar. No [github](https://github.com/metageni/SUPER-FOCUS) do SUPER-FOCUS, os autores deixaram recomendações para o uso de cada alinhador. E por último, temos o parâmetro <code>-db</code> para informar a base de dados utilizada. Dessa forma, o comando final fica assim:
     
     <code>python3 superfocus.py -q yanomami/menor/ -dir yanomami/superfocus/ -a diamond -db DB_90</code>
     
