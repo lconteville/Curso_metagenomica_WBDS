@@ -161,22 +161,26 @@
 
 - Execute o comando abaixo para ver todas os parâmetros possíveis e necessários para rodar o [SUPER-FOCUS](https://github.com/metageni/SUPER-FOCUS).
 
-    <code>superfocus.py -h</code>
-
-- Devido ao tamanho da base de dados e às limitações da Máquina Virtual, não será possível rodar esse programa no workshop, mas vamos dar uma olhada no comando que foi usado para gerar os arquivos de saída:
+    <code>superfocus -h</code>
 
 - Utilizamos <code>-q</code> para fornecer o caminho do diretório em que estão os nossos arquivos fastq e <code>-dir</code> para fornecer o caminho do diretório em que serão salvos os arquivos de saída. O SUPER-FOCUS permite realizarmos o alinhamento com 3 alinhadores diferentes: DIAMOND, RAPSearch2 e BLAST. Com o parâmetro <code>-a</code> indicamos qual deles vamos usar. No [github](https://github.com/metageni/SUPER-FOCUS) do SUPER-FOCUS, os autores deixaram recomendações para o uso de cada alinhador. E por último, temos o parâmetro <code>-db</code> para informar a base de dados utilizada. Dessa forma, o comando final fica assim (NÃO RODAR):
     
-    <code>superfocus.py -q . -dir . -a diamond -db DB_90</code>
+    <code>superfocus -q . -dir . -a diamond -db DB_90</code>
     
-- O comando acima gerará sete arquivos, sendo cinco arquivos <code>.xls</code> com as abundâncias de cada subsistema/função identificada nos metagenomas e dois arquivos <code>.m8</code> com informações sobre as sequências e os alinhamentos realizados contra o banco de dados.
+- O comando acima gerará sete arquivos, sendo cinco arquivos <code>.xls</code> com as abundâncias de cada subsistema/função identificada nos metagenomas e dois arquivos <code>.m8</code> com informações sobre as sequências e os alinhamentos realizados contra o banco de dados. 
 
-    <code> cd outputs/ </code>
+- Devido ao tamanho da base de dados original e às limitações da Máquina Virtual, utilizamos aqui uma pequena parte da base de dados original. No diretório <code>output_yanomami_completo</code> podemos encontrar o resultado gerado com a base de dados original.
 
-- Como as abundâncias são geradas separadamente para cada arquivo do par, vamos somar as abundâncias e dividir por 2 com o seguinte comando:
+    <code>cd output_yanomami_completo</code>
+
+- Utilize os comandos <code>head</code> ou <code>less</code> para analisar cada arquivo de saída. Exemplo:
+
+    <code>less output_subsystem_level_1.xls</code>
+
+- Nos arquivos <code>.xls</code> podemos ver que as abundâncias são geradas separadamente para cada arquivo do par. Para facilitar as próximas análises, vamos somar as abundâncias e dividir por 2 com o seguinte comando:
 
     <code>cut -d$'\t' -f1,4,5 output_subsystem_level_1.xls | tail -n +6 | awk -F$'\t' '{ print $1"\t"($2+$3)/2 }' > yanomami_level1.tsv</code>
-    
+   . 
 - Para facilitar, já deixei os outputs dos outros metagenomas no diretório <code>outputs</code>. Vamos copiá-los para a página que estamos para trabalhar com eles:
 
     <code> cp outputs/*_level1.tsv . </code>
