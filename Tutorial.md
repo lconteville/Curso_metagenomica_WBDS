@@ -141,11 +141,11 @@
     
 - Esse arquivo tem informações de reinos a espécies, vamos filtrar só os filos:
 
-    <code> grep -E "clade|p__" merged_metaphlan.txt | grep -v "c__" | sed 's/^.*p__//g' | cut -f1,3-6 > merge_metaphlan_filos.txt </code>
+    <code> grep -E "clade|p__" merged_metaphlan.txt | grep -v "c__" | sed 's/^.*p__//g' | cut -f1,3-6 > merged_metaphlan_filos.txt </code>
     
 - Agora vamos criar um heatmap com <code>hclust2</code> usando esse arquivo que acabamos de gerar: 
 
-    <code>hclust2.py -i merge_metaphlan_filos.txt -o hclust.png --f_dist_f braycurtis --s_dist_f braycurtis --cell_aspect_ratio 0.5 -l --flabel_size 10 --slabel_size 10 --max_flabel_len 100 --max_slabel_len 100 --minv 0.1 --dpi 300</code>
+    <code>hclust2.py -i merged_metaphlan_filos.txt -o merged_metaphlan_filos.png --f_dist_f braycurtis --s_dist_f braycurtis --cell_aspect_ratio 0.5 -l --flabel_size 10 --slabel_size 10 --max_flabel_len 100 --max_slabel_len 100 --minv 0.1 --dpi 300</code>
 
 <h3> Análise Funcional </h3>
 
@@ -159,11 +159,15 @@
 
     <code>superfocus.py -h</code>
 
-- Utilizamos <code>-q</code> para fornecer o caminho do diretório em que estão os nossos arquivos fastq e <code>-dir</code> para fornecer o caminho do diretório em que serão salvos os arquivos de saída. O SUPER-FOCUS permite realizarmos o alinhamento com 3 alinhadores diferentes: DIAMOND, RAPSearch2 e BLAST. Com o parâmetro <code>-a</code> indicamos qual deles vamos usar. No [github](https://github.com/metageni/SUPER-FOCUS) do SUPER-FOCUS, os autores deixaram recomendações para o uso de cada alinhador. E por último, temos o parâmetro <code>-db</code> para informar a base de dados utilizada. Dessa forma, o comando final fica assim:
+- Devido ao tamanho da base de dados e às limitações da Máquina Virtual, não será possível rodar esse programa no workshop, mas vamos dar uma olhada no comando que foi usado para gerar os arquivos de saída:
+
+- Utilizamos <code>-q</code> para fornecer o caminho do diretório em que estão os nossos arquivos fastq e <code>-dir</code> para fornecer o caminho do diretório em que serão salvos os arquivos de saída. O SUPER-FOCUS permite realizarmos o alinhamento com 3 alinhadores diferentes: DIAMOND, RAPSearch2 e BLAST. Com o parâmetro <code>-a</code> indicamos qual deles vamos usar. No [github](https://github.com/metageni/SUPER-FOCUS) do SUPER-FOCUS, os autores deixaram recomendações para o uso de cada alinhador. E por último, temos o parâmetro <code>-db</code> para informar a base de dados utilizada. Dessa forma, o comando final fica assim (NÃO RODAR):
     
     <code>superfocus.py -q . -dir . -a diamond -db DB_90</code>
     
 - O comando acima gerará sete arquivos, sendo cinco arquivos <code>.xls</code> com as abundâncias de cada subsistema/função identificada nos metagenomas e dois arquivos <code>.m8</code> com informações sobre as sequências e os alinhamentos realizados contra o banco de dados.
+
+    <code> cd outputs/output_yanomami_
 
 - Como as abundâncias são geradas separadamente para cada arquivo do par, vamos somar as abundâncias e dividir por 2 com o seguinte comando:
 
@@ -172,6 +176,14 @@
 - Para facilitar, já deixei os outputs dos outros metagenomas no diretório <code>outputs</code>. Vamos copiá-los para a página que estamos para trabalhar com eles:
 
     <code> cp outputs/*_level1.tsv . /code>
+        
+- Vamos criar um arquivo com os level 1
+        
+    <code>merge_metaphlan_tables.py *_level1.tsv > merged_level1.txt</code>
+        
+- Agora vamos criar um heatmap com <code>hclust2</code> usando esse arquivo que acabamos de gerar: 
+
+    <code>hclust2.py -i merged_level1.txt -o merged_level1.png --f_dist_f braycurtis --s_dist_f braycurtis --cell_aspect_ratio 0.5 -l --flabel_size 10 --slabel_size 10 --max_flabel_len 100 --max_slabel_len 100 --minv 0.1 --dpi 300</code>
 
 
 <h3> Análises Estatísticas</h3>
