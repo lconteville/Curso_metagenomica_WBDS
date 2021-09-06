@@ -163,7 +163,15 @@
     
     <code>python3 superfocus.py -q yanomami/menor/ -dir yanomami/superfocus/ -a diamond -db DB_90</code>
     
-- O comando acima gerará seis arquivos, sendo cinco arquivos <code>.xls</code> e um arquivo <code>.m8</code>
+- O comando acima gerará sete arquivos, sendo cinco arquivos <code>.xls</code> com as abundâncias de cada subsistema/função identificada nos metagenomas e dois arquivos <code>.m8</code> com informações sobre as sequências e os alinhamentos realizados contra o banco de dados.
+
+- Como as abundâncias são geradas separadamente para cada arquivo do par, vamos somar as abundâncias e dividir por 2 com o seguinte comando:
+
+    <code>cut -d$'\t' -f1,4,5 output_subsystem_level_1.xls | tail -n +6 | awk -F$'\t' '{ print $1"\t"($2+$3)/2 }' > yanomami_level1.tsv</code>
+    
+- Para facilitar, já deixei os outputs dos outros metagenomas no diretório <code>outputs</code>. Vamos copiá-los para a página que estamos para trabalhar com eles:
+
+    <code> cp outputs/*_level1.tsv . /code>
 
 
 <h3> Análises Estatísticas</h3>
