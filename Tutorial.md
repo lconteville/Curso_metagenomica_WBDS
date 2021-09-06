@@ -133,7 +133,7 @@
  
 - Para gerar a primeira figura, precisaremos de um arquivo que tenha os resultados de todos os metagenomas. Vamos primeiro copiar os resultados dos outros metagenomas para o diretório em que estamos usando o comando <code>cp</code>:
 
-    <code>cp *_metaphlan.txt .</code>
+    <code>cp outputs/*_metaphlan.txt .</code>
 
 - Para gerar este arquivo, podemos usar um script do pacote do metaphlan chamado <code>merge_metaphlan_tables.py</code>. Para utilizá-lo só precisamos chamá-lo seguido dos arquivos que queremos juntar:
 
