@@ -122,20 +122,22 @@
     
 - O arquivo <code>caatinga_bowtie2out.txt</code> contém resultados do mapeamento feito pelo metaphlan listados um por linha em colunas separadas por nome da sequência metagenômica e a referência para qual esta sequência mapeou. 
 
-- O arquivo <code>caatinga_metaphlan.txt</code> possui um cabeçalho de 4 linhas iniciadas por <code> # </code>. A primeira linha lista o banco de dados de genes marcadores que o MetaPhlAn usa. A segunda linha lista o comando que foi utilizado para gerá-lo. A quarta linha contém os cabeçalhos das colunas que estão abaixo.
-
-- A primeira coluna lista os clados, de reinos (Bactérias, Archaea, etc.) a espécies:
+- O arquivo <code>caatinga_metaphlan.txt</code> possui um cabeçalho de 4 linhas iniciadas por <code>#</code>. A primeira linha lista o banco de dados de genes marcadores que o MetaPhlAn usa. A segunda linha lista o comando que foi utilizado para gerá-lo. A quarta linha contém os cabeçalhos das colunas que estão abaixo. Mais abaixo, temos uma tabela onde:
+    - A primeira coluna lista os clados, de reinos (Bactérias, Archaea, etc.) a espécies:
     Reino: k__, Filo: p__, Classe: c__, Ordem: o__, Família: f__, Gênero: g__, Espécie: s__
-
-- A segunda coluna lista os número de acesso desses táxons no NCBI. A terceira coluna lista as abundâncias relativas por nível, ou seja cada nível somará 100%. A quarta coluna lista as espécies adicionais para os casos em que o perfil do metagenoma contém clados que representam várias espécies. As espécies listadas na coluna 1 são as espécies representativas.
+    - A segunda coluna lista os número de acesso desses táxons no NCBI. A terceira coluna lista as abundâncias relativas por nível, ou seja cada nível somará 100%. A quarta coluna lista as espécies adicionais para os casos em que o perfil do metagenoma contém clados que representam várias espécies. As espécies listadas na coluna 1 são as espécies representativas.
 
 - Podemos filtrar esse resultado e olhar só as famílias que foram identificadas utilizando o comando <code>grep</code>:
  
     <code>grep f__ caatinga_metaphlan.txt | grep -v g__</code>
  
-- Para gerar a primeira figura, precisaremos de um arquivo que tenha os resultados de todos os metagenomas. Para gerar este arquivo, podemos usar um script do pacote do metaphlan chamado <code>merge_metaphlan_tables.py</code>. Para utilizá-lo só precisamos chamá-lo seguido dos arquivos que queremos juntar:
+- Para gerar a primeira figura, precisaremos de um arquivo que tenha os resultados de todos os metagenomas. Vamos primeiro copiar os resultados dos outros metagenomas para o diretório em que estamos usando o comando <code>cp</code>:
 
-    <code>cd outputs</code>
+    <code>cp *_metaphlan.txt .</code>
+
+- Para gerar este arquivo, podemos usar um script do pacote do metaphlan chamado <code>merge_metaphlan_tables.py</code>. Para utilizá-lo só precisamos chamá-lo seguido dos arquivos que queremos juntar:
+
+
 
     <code>merge_metaphlan_tables.py rumen_metaphlan.txt caatinga_metaphlan.txt  yanomami_metaphlan.txt praia_metaphlan.txt > merged_metaphlan.txt</code>
     
