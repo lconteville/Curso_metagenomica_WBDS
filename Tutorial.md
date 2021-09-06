@@ -135,19 +135,21 @@
 
     <code>cp outputs/*_metaphlan.txt .</code>
 
-- Para gerar este arquivo, podemos usar um script do pacote do metaphlan chamado <code>merge_metaphlan_tables.py</code>. Para utilizá-lo só precisamos chamá-lo seguido dos arquivos que queremos juntar:
-
-
+- Para gerar um arquivo com o resultado de várias análises taxonômics, podemos usar um script do pacote do metaphlan chamado <code>merge_metaphlan_tables.py</code>. Para utilizá-lo só precisamos chamá-lo seguido dos arquivos que queremos juntar:
 
     <code>merge_metaphlan_tables.py rumen_metaphlan.txt caatinga_metaphlan.txt  yanomami_metaphlan.txt praia_metaphlan.txt > merged_metaphlan.txt</code>
     
-- Esse arquivo tem informações de reinos a espécies, vamos filtrar só os filos:
+- Esse arquivo tem informações de reinos a espécies, vamos filtrar para ficar só com os filos:
 
     <code> grep -E "clade|p__" merged_metaphlan.txt | grep -v "c__" | sed 's/^.*p__//g' | cut -f1,3-6 > merged_metaphlan_filos.txt </code>
     
 - Agora vamos criar um heatmap com <code>hclust2</code> usando esse arquivo que acabamos de gerar: 
 
-    <code>hclust2.py -i merged_metaphlan_filos.txt -o merged_metaphlan_filos.png --f_dist_f braycurtis --s_dist_f braycurtis --cell_aspect_ratio 0.5 -l --flabel_size 10 --slabel_size 10 --max_flabel_len 100 --max_slabel_len 100 --minv 0.1 --dpi 300</code>
+    <code>hclust2.py -i merged_metaphlan_filos.txt -o merged_metaphlan_filos.png --f_dist_f braycurtis --s_dist_f braycurtis --cell_aspect_ratio 0.5 -l --flabel_size 10 --slabel_size 10 --max_flabel_len 100 --max_slabel_len 100 --minv 0.1 --dpi 200</code>
+    
+- Podemos abrir o arquivo <code>.png</code> que foi gerado usando a linha de comando:
+
+    <code> shotwell merged_metaphlan_filos.png </code>
 
 <h3> Análise Funcional </h3>
 
