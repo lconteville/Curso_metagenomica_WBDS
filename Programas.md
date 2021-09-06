@@ -8,6 +8,6 @@
 
 [hclust2](https://github.com/SegataLab/hclust2) (pip install hclust2)
 
-[diamond](https://github.com/bbuchfink/diamond)0.9.14
+[diamond](https://github.com/bbuchfink/diamond) 0.9.14
 
 [SUPER-FOCUS](https://github.com/metageni/SUPER-FOCUS) (pip install superfocus)
