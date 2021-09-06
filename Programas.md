@@ -6,6 +6,6 @@
 
 [Metaphlan3](https://huttenhower.sph.harvard.edu/metaphlan/) (pip install metaphlan)
 
-hclust2
+[hclust2](https://github.com/SegataLab/hclust2) (pip install hclust2)
 
 SUPER-FOCUS
