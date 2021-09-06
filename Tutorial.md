@@ -167,7 +167,7 @@
     
 - O comando acima gerará sete arquivos, sendo cinco arquivos <code>.xls</code> com as abundâncias de cada subsistema/função identificada nos metagenomas e dois arquivos <code>.m8</code> com informações sobre as sequências e os alinhamentos realizados contra o banco de dados.
 
-    <code> cd outputs/output_yanomami_
+    <code> cd outputs/ </code>
 
 - Como as abundâncias são geradas separadamente para cada arquivo do par, vamos somar as abundâncias e dividir por 2 com o seguinte comando:
 
@@ -175,7 +175,7 @@
     
 - Para facilitar, já deixei os outputs dos outros metagenomas no diretório <code>outputs</code>. Vamos copiá-los para a página que estamos para trabalhar com eles:
 
-    <code> cp outputs/*_level1.tsv . /code>
+    <code> cp outputs/*_level1.tsv . </code>
         
 - Vamos criar um arquivo com os level 1
         
