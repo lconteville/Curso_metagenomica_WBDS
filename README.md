@@ -8,8 +8,9 @@
   - Introdução à Metagenômica
   - Metodologia in vitro da abordagem de Metagenômica
   - Sequenciamento
+  - Metodologia in silico para análise de metagenomas
   
-**2. Aulas Teóricas + Práticas**
+**2. Aulas Práticas**
   - Arquivo FastQ
   - Análise da Qualidade das Sequências (Programa FastQC)
   - Trimagem e Filtragem (Programa Cutadapt)
