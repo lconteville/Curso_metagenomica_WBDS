@@ -157,11 +157,11 @@
 
 - Execute o comando abaixo para ver todas os parâmetros possíveis e necessários para rodar o [SUPER-FOCUS](https://github.com/metageni/SUPER-FOCUS).
 
-    <code>python3 superfocus.py -h</code>
+    <code>superfocus.py -h</code>
 
 - Utilizamos <code>-q</code> para fornecer o caminho do diretório em que estão os nossos arquivos fastq e <code>-dir</code> para fornecer o caminho do diretório em que serão salvos os arquivos de saída. O SUPER-FOCUS permite realizarmos o alinhamento com 3 alinhadores diferentes: DIAMOND, RAPSearch2 e BLAST. Com o parâmetro <code>-a</code> indicamos qual deles vamos usar. No [github](https://github.com/metageni/SUPER-FOCUS) do SUPER-FOCUS, os autores deixaram recomendações para o uso de cada alinhador. E por último, temos o parâmetro <code>-db</code> para informar a base de dados utilizada. Dessa forma, o comando final fica assim:
     
-    <code>python3 superfocus.py -q yanomami/menor/ -dir yanomami/superfocus/ -a diamond -db DB_90</code>
+    <code>superfocus.py -q . -dir . -a diamond -db DB_90</code>
     
 - O comando acima gerará sete arquivos, sendo cinco arquivos <code>.xls</code> com as abundâncias de cada subsistema/função identificada nos metagenomas e dois arquivos <code>.m8</code> com informações sobre as sequências e os alinhamentos realizados contra o banco de dados.
 
