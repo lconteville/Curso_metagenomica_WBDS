@@ -183,9 +183,9 @@
     
 - Para facilitar, já deixei os outputs dos outros metagenomas no diretório <code>outputs</code>. Vamos copiá-los para a página que estamos para trabalhar com eles:
 
-    <code> cp outputs/*_level1.tsv . </code>
+    <code> cp ../outputs/*_level1.tsv . </code>
         
-- Vamos criar um arquivo com os level 1
+- Assim como fizemos na análise taxonômica, vamos criar um arquivo com os resultados da análise funcional de todos os metagenomas. Podemos usar um script do pacote do metaphlan chamado <code>merge_metaphlan_tables.py</code>. Para utilizá-lo só precisamos chamá-lo seguido dos arquivos que queremos juntar:
         
     <code>merge_metaphlan_tables.py *_level1.tsv > merged_level1.txt</code>
         
