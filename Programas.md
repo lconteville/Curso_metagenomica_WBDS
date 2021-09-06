@@ -4,7 +4,7 @@
 
 Bowtie2
 
-Metaphlan3
+[Metaphlan3](https://huttenhower.sph.harvard.edu/metaphlan/) (pip install metaphlan)
 
 hclust2
 
