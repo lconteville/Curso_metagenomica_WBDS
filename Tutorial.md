@@ -186,7 +186,7 @@
     <code> cp ../outputs/*_level1.tsv . </code>
         
 - Assim como fizemos na análise taxonômica, vamos criar um arquivo com os resultados da análise funcional de todos os metagenomas. Vamos usar o script do pacote do metaphlan chamado <code>merge_metaphlan_tables.py</code>. Para utilizá-lo só precisamos chamá-lo seguido dos arquivos que queremos juntar:
-        
+        https://drive.google.com/file/d/1_Nq84724SBSh4V6Jpt44dc1waZg4XZou/view?usp=sharing
     <code>merge_metaphlan_tables.py *_level1.tsv > merged_level1.txt</code>
         
 - Agora vamos criar um heatmap com <code>hclust2</code> usando esse arquivo que acabamos de gerar: 
