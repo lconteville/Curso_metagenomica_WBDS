@@ -177,9 +177,9 @@
 
     <code>less output_subsystem_level_1.xls</code>
 
-- Nos arquivos <code>.xls</code> podemos ver que as abundâncias são geradas separadamente para cada arquivo do par. Para facilitar as próximas análises, vamos somar as abundâncias e dividir por 2:
+- Nos arquivos <code>.xls</code> podemos ver que as abundâncias são geradas separadamente para cada arquivo do par. Para facilitar as próximas análises, vamos formatar o header, somar as abundâncias e dividir por 2:
 
-    <code>cut -d$'\t' -f1,4,5 output_subsystem_level_1.xls | awk -F$'\t' 'NR>=6 { print $1"\t"($2+$3)/2 }' > yanomami_level1.tsv</code>
+    <code>cut -d$'\t' -f1,4,5 output_subsystem_level_1.xls | sed '1,3s/^/#/' |awk -F$'\t' 'NR<4 {print $0} NR==5 {print "#clade\trelative_abundance"} NR>=6 { print $1"\t"($2+$3)/2 }' > yanomami_level1.tsv</code>
     
 - Para facilitar, já deixei os outputs dos outros metagenomas no diretório <code>outputs</code>. Vamos copiá-los para a página que estamos para trabalhar com eles:
 
