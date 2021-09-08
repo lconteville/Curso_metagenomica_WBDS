@@ -221,6 +221,9 @@ Alternativamente, alunxs com acesso a algum computador com o sistema operacional
 
     <code>library("ggpubr")</code>
     
+
+<h4>Análise Taxonômica</h4>
+    
 - Vamos importar o arquivo com os resultados do metaphlan
 
     <code>tabela <- read.csv("merged_metaphlan.tsv", sep="\t",row.names = 1, header=TRUE)</code>
@@ -316,6 +319,75 @@ Alternativamente, alunxs com acesso a algum computador com o sistema operacional
 - Heatmap
 
     <code>plot_heatmap(physeq, "PcoA", "bray", "Group", "Genero", low="#000033", high="#CCFF66")</code>
+        
+        
+<h4>Análise Funcional</h4>
+
+- Vamos importar o arquivo com os resultados do superfocus
+
+    <code>tabela2 <- read.csv("merged_level1.tsv", sep="\t",row.names = 1, header=TRUE)</code>
+        
+    <code>abundance2 <- otu_table(tabela2, taxa_are_rows = TRUE)</code> 
+
+- Gerar uma matrix com as informações taxonômicas
+    
+    <code>nomes_level1 = rownames(abundance2)</code> 
+        
+    <code>taxonomia2 <- matrix(nomes_level1)</code> 
+
+    <code>colnames(taxonomia2) <- "Level1"</code> 
+                                  
+    <code>rownames(taxonomia2) <- nomes_level1</code> 
+        
+    <code>TAX2 = tax_table(taxonomia2)</code> 
+
+- Gerar um data frame com os metadados sobre os metagenomas
+
+    <code>tabela_amostras2 <- data.frame(Group,Data)</code> 
+                              
+    <code>rownames(tabela_amostras2) <- colnames(abundance2)</code> 
+
+    <code>metadata2 <- sample_data(tabela_amostras2)</code> 
+
+- Criar um objeto phyloseq
+                       
+    <code>physeq2 <- phyloseq(abundance2, TAX2, metadata2)</code> 
+
+    <code>physeq2</code> 
+
+- Beta-diversidade PcoA com Bray-Curtis
+        
+    <code>ord2 <- ordinate(physeq2, "PCoA", "bray")</code> 
+                  
+    <code>plot_ordination(physeq2, ord2, color = "Group") + geom_point(size = 3)</code> 
+
+- BarPlot 
+        
+    <code>plot_bar(physeq2, x="Group", fill="Level1")</code> 
+
+    <code>dat4 <- psmelt(physeq2)</code> 
+                  
+    <code>medians2 <- ddply(dat4, ~Level1, function(x) c(median=median(x$Abundance)))</code> 
+                      
+    <code>remover2 <- medians2[medians2$median <= 6,]$Level1</code> 
+        
+    <code>dat2[dat4$Level1 %in% remover2,]$Level1 <- 'Outros'</code> 
+                                                     
+    <code>levels(dat4$Level1)</code> 
+        
+    <code>ggplot(dat4, aes(fill=Level1, y=Abundance, x=Group)) + geom_bar(position="stack", stat="identity") + theme_bw()</code> 
+
+- Poderíamos analisar se a abundância de algum filo é significativamente diferente
+
+    <code>dat5 <- dat4[(dat4$Level1 %in% "Carbohydrates"), ]</code> 
+
+    <code>my_comparisons <- list( c("Praia", "Caatinga"), c("Caatinga", "Rumen"), c("Praia", "Yanomami"))</code> 
+
+    <code>ggplot(dat5, aes(y=Abundance, x=Group, fill=Level1)) + geom_bar(stat = "identity") + stat_compare_means(method = "wilcox.test", comparisons = my_comparisons, size = 3.5)</code>
+
+- Heatmap
+
+    <code>plot_heatmap(physeq2, "MDS", "bray", "Group", "Level1", low="#000033", high="#CCFF66")</code>     
 
 - Para sair do ambiente R:
    
