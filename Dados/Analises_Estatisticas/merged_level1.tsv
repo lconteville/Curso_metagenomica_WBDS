@@ -1,0 +1,35 @@
+ID	caatinga_level1	praia_level1	rumen_level1	yanomami_level1
+Amino Acids and Derivatives	7.53858	11.5918	9.68786	6.54525
+Carbohydrates	13.3273	12.073	15.4694	10.4559
+Cell Division and Cell Cycle	0.68617	0.846835	0.711293	0.459402
+Cell Wall and Capsule	3.34218	4.18156	6.69626	11.7035
+Central metabolism	0.190003	0.287565	0.232647	0.158873
+Clustering-based subsystems	4.99951	5.52842	4.98174	3.89096
+Cofactors, Vitamins, Prosthetic Groups, Pigments	6.01268	6.9647	5.96273	11.9093
+DNA Metabolism	3.54252	5.39786	7.57772	6.16424
+Dormancy and Sporulation	0.0595911	0.0985874	0.188277	0.306887
+Fatty Acids, Lipids, and Isoprenoids	1.19875	2.89497	1.79396	1.58675
+Iron acquisition and metabolism	0.067014	0.382954	0.504849	0.64337
+Membrane Transport	1.28922	3.1297	3.29391	2.28419
+Metabolism of Aromatic Compounds	0.42167	1.01358	0.10499	0.17987
+Miscellaneous	1.25685	3.22336	3.09328	4.36834
+Motility and Chemotaxis	0.175599	0.797266	0.64026	0.883341
+Nitrogen Metabolism	1.92591	1.30113	0.73311	0.583608
+Nucleosides and Nucleotides	5.22274	4.39934	5.07352	5.55599
+Phages, Prophages, Transposable elements	0.0	0.357872	0.024107	1.19546
+Phages, Prophages, Transposable elements, Plasmids	0.398668	1.38073	0.786518	4.86557
+Phosphorus Metabolism	0.682326	1.47498	0.886701	1.07034
+Photosynthesis	0.058828	0.186346	0.0	0.00110782
+Plant cell walls and outer surfaces	0.0	0.00019755	0.0	0.0
+Potassium metabolism	0.169061	0.661441	0.648647	0.76651
+Predictions based on plant-prokaryote comparative analysis	0.136375	0.379572	0.219109	0.379928
+Protein Metabolism	14.5587	10.8213	13.7153	7.52334
+RNA Metabolism	9.30725	4.41879	5.44535	4.36781
+Regulation and Cell signaling	1.46316	1.27028	0.78484	1.96003
+Respiration	6.63759	5.8	3.43425	2.42146
+Secondary Metabolism	0.0322513	0.176423	0.0307511	0.10512
+Stress Response	7.4848	3.58702	2.97093	3.00013
+Sulfur Metabolism	0.646843	1.57274	0.836493	0.980007
+Transcriptional regulation	0.197619	0.246799	0.310798	0.16149
+Virulence	6.93134	3.38992	3.056	3.11023
+Virulence, Disease and Defense	0.0389478	0.162923	0.104402	0.411685
