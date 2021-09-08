@@ -217,7 +217,7 @@
     
 - Vamos importar o arquivo com os resultados do metaphlan
 
-    <code>tabela <- read.csv("C:\\Users\\Pichau\\Desktop\\Curso WBDS\\outputs_metaphlan\\merged.tsv", sep="\t",row.names = 1, header=TRUE)</code>
+    <code>tabela <- read.csv("merged_metaphlan.tsv", sep="\t",row.names = 1, header=TRUE)</code>
     
 - Filtrar para ficar apenas com as abundâncias dos gêneros identificados
     
@@ -259,12 +259,15 @@
         
     <code>physeq</code>
 
-
 - Beta-diversidade PcoA com Bray-Curtis
         
     <code>ord <- ordinate(physeq, "PCoA", "bray")</code>
         
     <code>plot_ordination(physeq, ord, color = "Group", axes=c(2,3)) + geom_point(size = 3)</code>
+
+- Também podemos fazer análise de alfa-diversidade, mas para isso, não podemos ter os dados em Abundância Relativa, como é gerado pelo Metaphlan:
+        
+    <code>estimate_richness(physeq)</code>
 
 - BarPlot por gêneros
         
