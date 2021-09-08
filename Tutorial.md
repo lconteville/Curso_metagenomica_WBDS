@@ -265,15 +265,15 @@ Alternativamente, alunxs com acesso a algum computador com o sistema operacional
         
     <code>physeq</code>
 
-- Beta-diversidade PcoA com Bray-Curtis
+- Beta-diversidade PcoA com Bray-Curtis. [Exemplos de output com mais amostras](https://joey711.github.io/phyloseq/plot_ordination-examples.html)
         
     <code>ord <- ordinate(physeq, "PCoA", "bray")</code>
         
     <code>plot_ordination(physeq, ord, color = "Group", axes=c(2,3)) + geom_point(size = 3)</code>
 
-- Também podemos fazer análise de alfa-diversidade, mas para isso, não podemos ter os dados em Abundância Relativa, como é gerado pelo Metaphlan:
+- Também podemos fazer análise de alfa-diversidade, mas para isso, não podemos ter os dados em Abundância Relativa, como é gerado pelo Metaphlan. [Exemplos de output](https://joey711.github.io/phyloseq/plot_richness-examples.html)
         
-    <code>estimate_richness(physeq)</code>
+    <code>plot_richness(physeq)</code>
 
 - BarPlot por gêneros
         
@@ -313,12 +313,13 @@ Alternativamente, alunxs com acesso a algum computador com o sistema operacional
             geom_bar(stat = "identity")+
             stat_compare_means(method = "wilcox.test", comparisons = my_comparisons, size = 3.5)</code>
 
-
 - Heatmap
 
     <code>plot_heatmap(physeq, "PcoA", "bray", "Group", "Genero", low="#000033", high="#CCFF66")</code>
 
-
+- Para sair do ambiente R:
+   
+    <code>quit()</code>
 
     
 
