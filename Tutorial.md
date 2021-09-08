@@ -186,7 +186,7 @@
     <code> cp ../outputs/*_level1.tsv . </code>
         
 - Assim como fizemos na análise taxonômica, vamos criar um arquivo com os resultados da análise funcional de todos os metagenomas. Vamos usar o script do pacote do metaphlan chamado <code>merge_metaphlan_tables.py</code>. Para utilizá-lo só precisamos chamá-lo seguido dos arquivos que queremos juntar:
-        https://drive.google.com/file/d/1_Nq84724SBSh4V6Jpt44dc1waZg4XZou/view?usp=sharing
+
     <code>merge_metaphlan_tables.py *_level1.tsv > merged_level1.txt</code>
         
 - Agora vamos criar um heatmap com <code>hclust2</code> usando esse arquivo que acabamos de gerar: 
@@ -198,7 +198,118 @@
     <code>shotwell merged_level1.png</code>
 
 <h3> Análises Estatísticas</h3>
-Shaman - https://shaman.pasteur.fr/
+
+- No diretório <code>Analises_Estatisticas</code> estão os arquivos com os resultados das análises taxonômica e funcional de todos os metagenomas:
+
+    <code>cd ../../Analises_Estatisticas</code>
+
+- Para esta etapa vamos usar a linguagem [R](https://www.r-project.org/) e alguns pacotes, como o [phyloseq](https://joey711.github.io/phyloseq/). Vamos iniciar chamando o R e os pacotes que serão utilizados:
+
+    <code>R</code>
     
+    <code>library("phyloseq")</code>
     
-    Database link - https://drive.google.com/file/d/1MCtrl7yCrEaR00zi2hGqUKiiMIeJ3Tup/view?usp=sharing
+    <code>library("ggplot2")</code>
+
+    <code>library("plyr")</code>
+
+    <code>library("ggpubr")</code>
+    
+- Vamos importar o arquivo com os resultados do metaphlan
+
+    <code>tabela <- read.csv("C:\\Users\\Pichau\\Desktop\\Curso WBDS\\outputs_metaphlan\\merged.tsv", sep="\t",row.names = 1, header=TRUE)</code>
+    
+- Filtrar para ficar apenas com as abundâncias dos gêneros identificados
+    
+    <code>rows_genero <- setdiff(grep("g__",rownames(tabela)),grep("s__",rownames(tabela)))</code>
+
+    <code>tabela_genero <- tabela[rows_genero,]</code>
+    
+    <code>abundance <- otu_table(tabela_genero, taxa_are_rows = TRUE)</code>
+        
+- Gerar uma matrix com as informações taxonômicas
+        
+    <code>nomes_generos = rownames(tabela_genero)</code>
+        
+    <code>lista = strsplit(nomes_generos, split="|", fixed=TRUE)</code>
+        
+    <code>taxonomia <- matrix(unlist(lista), nrow=length(lista), byrow=TRUE)</code>
+        
+    <code>colnames(taxonomia) = c("Reino", "Filo", "Classe", "Ordem", "Familia", "Genero")[1:ncol(taxonomia)]</code>
+        
+    <code>rownames(taxonomia) = rownames(abundance)</code>
+        
+    <code>TAX = tax_table(taxonomia)</code>
+
+- Gerar um data frame com os metadados sobre os metagenomas
+        
+    <code>Group <- c("Caatinga","Praia","Rumen","Yanomami")</code>
+                   
+    <code>Data <- rep("Metagenomas",4)</code>
+                  
+    <code>tabela_amostras <- data.frame(Group,Data)</code>
+                             
+    <code>rownames(tabela_amostras) <- colnames(abundance)</code>
+                                       
+    <code>metadata = sample_data(tabela_amostras)</code>
+
+- Criar um objeto phyloseq
+        
+    <code>physeq = phyloseq(abundance, TAX, metadata)</code>
+        
+    <code>physeq</code>
+
+
+- Beta-diversidade PcoA com Bray-Curtis
+        
+    <code>ord <- ordinate(physeq, "PCoA", "bray")</code>
+        
+    <code>plot_ordination(physeq, ord, color = "Group", axes=c(2,3)) + geom_point(size = 3)</code>
+
+- BarPlot por gêneros
+        
+    <code>plot_bar(physeq, x="Group", fill="Genero")</code>
+
+- BarPlot por filos
+        
+    <code>physeq_filo = tax_glom(physeq, "Filo")</code>
+        
+    <code>plot_bar(physeq_filo, x="Group", fill="Filo")</code>
+
+    <code>dat <- psmelt(physeq_filo)</code>
+        
+    <code>medians <- ddply(dat, ~Filo, function(x) c(median=median(x$Abundance)))</code>
+        
+    <code>remover <- medians[medians$median <= 0.1,]$Filo</code>
+        
+    <code>dat[dat$Filo %in% remover,]$Filo <- 'Outros'</code>
+        
+    <code>ggplot(dat, aes(fill=Filo, y=Abundance, x=Group)) + 
+            geom_bar(position="stack", stat="identity")+
+            theme_bw()</code>
+
+- Se tivéssemos mais amostras de cada microbioma, poderíamos fazer um BoxPlot
+        
+    <code>dat2 <- dat[!(dat$Filo %in% remover), ]</code>
+
+    <code>ggplot(dat2, aes(x=Group, y=Abundance, fill=Filo)) + geom_boxplot()</code>
+
+- Poderíamos analisar se a abundância de algum filo é significativamente diferente
+
+    <code>dat3 <- dat[(dat$Filo %in% "p__Bacteroidetes"), ]</code>
+
+    <code>my_comparisons <- list( c("Praia", "Caatinga"), c("Caatinga", "Rumen"), c("Praia", "Yanomami") )</code>
+
+    <code>ggplot(dat3, aes(y=Abundance, x=Group, fill=Filo)) + 
+            geom_bar(stat = "identity")+
+            stat_compare_means(method = "wilcox.test", comparisons = my_comparisons, size = 3.5)</code>
+
+
+- Heatmap
+
+    <code>plot_heatmap(physeq, "PcoA", "bray", "Group", "Genero", low="#000033", high="#CCFF66")</code>
+
+
+
+    
+
