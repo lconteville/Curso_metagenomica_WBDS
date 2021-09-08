@@ -37,4 +37,4 @@ Alternativamente, alunxs com acesso a algum computador com o sistema operacional
 
 Quem baixar e instalar a máquina virtual não precisará instalar mais nenhum programa.
 
-Alunxs que não baixarem e instalarem a máquina virtual e que não instalou os programas em computador com Linux também conseguirão acompanhar o curso, já que todos os arquivos que vamos gerar em cada etapa das análises está disponível neste repositório do github, dentro de [Dados](./Dados)
+Alunxs que não instalarem a máquina virtual ou os programas em computador com Linux também conseguirão acompanhar o curso, já que todos os arquivos que vamos gerar em cada etapa das análises está disponível neste repositório do github, dentro de [Dados](./Dados).
