@@ -32,7 +32,7 @@ Alternativamente, alunxs com acesso a algum computador com o sistema operacional
 
 - Vamos dar uma olhada nesses arquivos Fastq? Vamos começar acessando a pasta que estão nossos dados com o comando <code>cd</code>:
 
-    <code> cd Desktop/Curso/Dados/Dados_Brutos</code>
+    <code> cd Desktop/Dados/Dados_Brutos</code>
 
 - Para ler um arquivo pelo terminal, podemos usar o comando <code>head</code>. Esse comando mostra no terminal o conteúdo das 10 primeiras linhas de um arquivo.
 
