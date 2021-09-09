@@ -294,7 +294,9 @@ Alternativamente, alunxs com acesso a algum computador com o sistema operacional
         
     <code>remover <- medians[medians$median <= 0.1,]$Filo</code>
         
-    <code>dat[dat$Filo %in% remover,]$Filo <- 'Outros'</code>
+    <code>dat$Filo <- as.character(dat$Filo)</code>
+        
+    <code>dat[dat$Filo %in% remover,]$Filo <- "Outros"</code>
         
     <code>ggplot(dat, aes(fill=Filo, y=Abundance, x=Group)) + 
             geom_bar(position="stack", stat="identity")+
