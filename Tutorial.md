@@ -320,7 +320,7 @@ Alternativamente, alunxs com acesso a algum computador com o sistema operacional
 
 - Heatmap
 
-    <code>plot_heatmap(physeq, "PcoA", "bray", "Group", "Genero", low="#000033", high="#CCFF66")</code>
+    <code>plot_heatmap(physeq, "NMDS", "bray", "Group", "Genero", low="#000033", high="#CCFF66")</code>
         
         
 <h4>Análise Funcional</h4>
