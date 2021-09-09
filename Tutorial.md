@@ -179,7 +179,7 @@ Alternativamente, alunxs com acesso a algum computador com o sistema operacional
 
     <code>cd output_yanomami_completo</code>
 
-- Utilize os comandos <code>head</code> ou <code>less</code> para analisar cada arquivo de saída. Exemplo:
+- Utilize os comandos <code>head</code> ou <code>less</code> para analisar cada arquivo de saída. Para sair do <code>less</code> pressione a tecla <code>q</code> em seu teclado.
 
     <code>less output_subsystem_level_1.xls</code>
 
