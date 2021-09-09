@@ -2,7 +2,7 @@
 
 Para realizar a instalação da Máquina Virtual, siga o passo-a-passo descrito no [README.md](./README.md). Toda a parte prática do curso poderá ser executada pela Máquina Virtual fornecida. No entanto, será possível acompanhar o curso mesmo se não for possível baixá-la ou instalá-la.
 
-Alternativamente, alunxs com acesso a algum computador com o sistema operacional Linux instalado e conhecimento prévio em instalação de programas, podem baixar e instalar diretamente os programas que serão utilizados no workshop. Mais detalhes em: Programas.md
+Alternativamente, alunxs com acesso a algum computador com o sistema operacional Linux instalado e conhecimento prévio em instalação de programas, podem baixar e instalar diretamente os programas que serão utilizados no workshop. Mais detalhes em: [Programas.md](./Programas.md)
 
 <h3> Dados metagenômicos que serão utilizados </h3>
 
