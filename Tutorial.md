@@ -302,7 +302,7 @@ Alternativamente, alunxs com acesso a algum computador com o sistema operacional
 
 - Se tivéssemos mais amostras de cada microbioma, poderíamos fazer um BoxPlot
         
-    <code>dat2 <- dat[!(dat$Filo %in% remover), ]</code>
+    <code>dat2 <- dat[!(dat$Filo == "Outros"), ]</code>
 
     <code>ggplot(dat2, aes(x=Group, y=Abundance, fill=Filo)) + geom_boxplot()</code>
 
