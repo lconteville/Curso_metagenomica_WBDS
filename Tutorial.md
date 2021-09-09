@@ -375,7 +375,7 @@ Alternativamente, alunxs com acesso a algum computador com o sistema operacional
     
     <code>dat4$Level1 <- as.character(dat4$Level1)</code>
         
-    <code>dat2[dat4$Level1 %in% remover2,]$Level1 <- "Outros"</code> 
+    <code>dat4[dat4$Level1 %in% remover2,]$Level1 <- "Outros"</code> 
                                                          
     <code>ggplot(dat4, aes(fill=Level1, y=Abundance, x=Group)) + geom_bar(position="stack", stat="identity") + theme_bw()</code> 
 
