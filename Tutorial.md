@@ -110,7 +110,7 @@ Alternativamente, alunxs com acesso a algum computador com o sistema operacional
 
 - Primeiro vamos sair da pasta Dados_Brutos e acessar a pasta que estão nossos outros dados com o comando <code>cd</code>:
 
-    <code> cd ../Analise_Taxonômica</code>
+    <code> cd ../Analise_Taxonomica</code>
 
 - Nesta etapa identificaremos quais organismos estão nas nossas amostras com o programa [MetaPhlAn](http://huttenhower.sph.harvard.edu/metaphlan) (Metagenomic Phylogenetic Analysis). A classificação feita pelo [MetaPhlAn](http://huttenhower.sph.harvard.edu/metaphlan) baseia-se em seu banco de dados de genes marcadores únicos identificados em genomas de referência de bactérias, arquéias, vírus e eucariotos. Execute o comando abaixo para ver todos os parâmetros que podem ser usados no metaphlan.
 
