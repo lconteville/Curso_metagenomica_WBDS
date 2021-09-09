@@ -147,7 +147,7 @@ Alternativamente, alunxs com acesso a algum computador com o sistema operacional
     
 - Esse arquivo tem informações de reinos a espécies, vamos filtrar para ficar só com os filos:
 
-    <code> head -1 merged_metaphlan.txt > merged_metaphlan_filos.txt ; grep -E "clade|p__" merged_metaphlan.txt | grep -v "c__" | sed 's/^.*p__//g' | cut -f1,3-6 >> merged_metaphlan_filos.txt </code>
+    <code> head -1 merged_metaphlan.txt > merged_metaphlan_filos.txt ; grep -E "clade|p__" merged_metaphlan.txt | grep -v "c__" | sed 's/^.*p__//g' >> merged_metaphlan_filos.txt </code>
     
 - Agora vamos criar um heatmap com <code>hclust2</code> usando esse arquivo que acabamos de gerar: 
 
