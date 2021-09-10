@@ -13,3 +13,5 @@
 [SUPER-FOCUS](https://github.com/metageni/SUPER-FOCUS) (pip install superfocus)
 
 [R](https://www.r-project.org/) (sudo apt install r-base)
+
+Pacotes R: phyloseq, ggplot2, plyr e ggpubr.
