@@ -11,3 +11,5 @@
 [diamond](https://github.com/bbuchfink/diamond) 0.9.14
 
 [SUPER-FOCUS](https://github.com/metageni/SUPER-FOCUS) (pip install superfocus)
+
+[R](https://www.r-project.org/) (sudo apt install r-base)
