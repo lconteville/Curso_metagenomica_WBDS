@@ -22,16 +22,19 @@ Contate-me em caso de dúvidas pelo endereço: lilianeconteville@gmail.com
 
 <h2>Máquina Virtual</h2>
 
-Toda a parte prática do curso poderá ser executada pela Máquina Virtual fornecida. A mesma já vem com todos os programas que vamos usar. No entanto, será possível acompanhar o curso mesmo se não for possível baixá-la ou instalá-la.
+Toda a parte prática do curso poderá ser executada pela Máquina Virtual fornecida. A mesma já vem com todos os programas que vamos usar. No entanto, será possível acompanhar o curso mesmo se não tiverem baixado e instalado a Máquina Virtual.
 
-1. Realizar o download do programa [Oracle VM VirtualBox](https://www.virtualbox.org/wiki/Downloads) e Instalar seguindo as instruções do site.
+1. Realizar o download do programa [Oracle VM VirtualBox](https://www.virtualbox.org/wiki/Downloads), baixe e instale a versão do VirtualBox compatível com o seu sistema operacionale. Instale seguindo as instruções do site.
 2. Realizar o download da vdi 
-3. 
-
+3. Abra o VirtualBox e clique em "Novo"
+4. Na janela que será aberta, dê o nome "Curso" à máquina virtual, indique uma pasta onde ela será instalada, Em "Tipo" selecione "Linux", e em "Versão" selecione "Other Linux (64-bit)". Depois clique em "Próximo".
+5. Em "Tamanho da memória", o máximo que estiver em verde.
+6. Em "Disco rígido", selecione “Utilizar um disco rígido virtual existente" e em seguida, selecione o arquivo <code>.vdi</code> que foi baixado anteriormente. Em seguida, clique em "Criar".
+7. A Máquina Virtual está pronta para o workshop! Clique em "Iniciar" e aguarde um pouquinho para a máquina carregar.
 
 <h2>Linux OS</h2>
 
-Alternativamente, alunxs com acesso a algum computador com o sistema operacional Linux instalado e algum conhecimento prévio em instalação de programas, podem baixar e instalar diretamente os programas que serão utilizados no workshop. Mais detalhes em: [Programas.md](./Programas.md)
+Alternativamente, para quem não quiser baixar a Máquina Virtual por já ter computador com o sistema operacional Linux instalado, podem baixar e instalar diretamente os programas que serão utilizados no workshop. Mais detalhes em: [Programas.md](./Programas.md)
 
 <h2>Observações</h2>
 
