@@ -31,6 +31,7 @@ Toda a parte prática do curso poderá ser executada pela Máquina Virtual forne
 5. Em "Tamanho da memória", o máximo que estiver em verde.
 6. Em "Disco rígido", selecione “Utilizar um disco rígido virtual existente" e em seguida, selecione o arquivo <code>.vdi</code> que foi baixado anteriormente. Em seguida, clique em "Criar".
 7. A Máquina Virtual está pronta para o workshop! Clique em "Iniciar" e aguarde um pouquinho para a máquina carregar.
+8. A senha para acesso é <code>metagenomica</code>.
 
 <h2>Linux OS</h2>
 
