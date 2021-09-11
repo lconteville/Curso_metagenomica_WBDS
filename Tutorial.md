@@ -121,6 +121,8 @@ Alternativamente, alunxs com acesso a algum computador com o sistema operacional
     <code>metaphlan --input_type fastq caatinga_1.q20.fastq,caatinga_2.q20.fastq --bowtie2out caatinga_bowtie2out.txt > caatinga_metaphlan.txt</code>
     
 - O comando acima gerará 2 arquivos de texto. Para dar uma olhada nos resultados, vamos para o diretório <code>output_caatinga</code>, onde deixei pronto os resultados. Para visualizar os arquivos de saída podemos utilizar o comando <code>less</code> seguido do nome do arquivo. O comando irá exibir o conteúdo do arquivo e você pode usar as teclas para cima e para baixo no teclado e fazer a paginação. Para sair do <code>less</code> pressione a tecla <code>q</code> em seu teclado.
+
+    <code> cd output_caatinga </code>
  
     <code> less caatinga_bowtie2out.txt</code>
  
