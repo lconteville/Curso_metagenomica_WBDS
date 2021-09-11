@@ -116,11 +116,11 @@ Alternativamente, alunxs com acesso a algum computador com o sistema operacional
 
     <code>metaphlan -h</code>
     
-- Como nossos arquivos são <code>.fastq</code>, devemos avisar isso ao programa com o parâmetro <code>--input_type</code>. Os dois arquivos que serão usados como input nesse programa devem estar separados por uma vírgula. Utilizaremos o sinal <code>></code> para mandar o resultado do comando para o arquivo <code>caatinga_metaphlan.txt</code>. Dessa forma, o comando final fica assim:
+- Como nossos arquivos são <code>.fastq</code>, devemos avisar isso ao programa com o parâmetro <code>--input_type</code>. Os dois arquivos que serão usados como input nesse programa devem estar separados por uma vírgula. Utilizaremos o sinal <code>></code> para mandar o resultado do comando para o arquivo <code>caatinga_metaphlan.txt</code>. O comando final ficaria como demonstrado abaixo, mas <b>não vamos rodar esse comando na máquina virtual</b>:
 
     <code>metaphlan --input_type fastq caatinga_1.q20.fastq,caatinga_2.q20.fastq --bowtie2out caatinga_bowtie2out.txt > caatinga_metaphlan.txt</code>
     
-- O comando acima gerará 2 arquivos de texto. Para dar uma olhada nos resultados, podemos utilizar o comando <code>less</code> seguido do nome do arquivo. O comando irá exibir o conteúdo do arquivo e você pode usar as teclas para cima e para baixo no teclado e fazer a paginação do arquivo. Para sair do <code>less</code> pressione a tecla <code>q</code> em seu teclado.
+- O comando acima gerará 2 arquivos de texto. Para dar uma olhada nos resultados, vamos para o diretório <code>output_caatinga</code>, onde deixei pronto os resultados. Para visualizar os arquivos de saída podemos utilizar o comando <code>less</code> seguido do nome do arquivo. O comando irá exibir o conteúdo do arquivo e você pode usar as teclas para cima e para baixo no teclado e fazer a paginação. Para sair do <code>less</code> pressione a tecla <code>q</code> em seu teclado.
  
     <code> less caatinga_bowtie2out.txt</code>
  
@@ -139,7 +139,7 @@ Alternativamente, alunxs com acesso a algum computador com o sistema operacional
  
 - Para gerar a primeira figura, precisaremos de um arquivo que tenha os resultados de todos os metagenomas. Vamos primeiro copiar os resultados dos outros metagenomas para o diretório em que estamos usando o comando <code>cp</code>:
 
-    <code>cp outputs/*_metaphlan.txt .</code>
+    <code>cp ../outputs/*_metaphlan.txt .</code>
 
 - Para gerar um arquivo com o resultado de várias análises taxonômics, podemos usar um script do pacote do metaphlan chamado <code>merge_metaphlan_tables.py</code>. Para utilizá-lo só precisamos chamá-lo seguido dos arquivos que queremos juntar:
 
