@@ -163,7 +163,7 @@ Alternativamente, alunxs com acesso a algum computador com o sistema operacional
 
 - Vamos sair da pasta <code>Analise_Taxonomica/outputs</code> e acessar a pasta que estão nossos outros dados com o comando <code>cd</code>:
 
-    <code> cd ../Analise_Funcional</code>
+    <code> cd ../../Analise_Funcional</code>
 
 - Agora que sabemos quais táxons estão nas nossas amostras, vamos buscar quais funções esses táxons podem estar executando. O [SUPER-FOCUS](https://github.com/metageni/SUPER-FOCUS)(SUbsystems Profile by databasE Reduction using FOCUS) usa o banco de dados [SEED](https://www.theseed.org/wiki/Home_of_the_SEED) para caracterizar os subsistemas presentes nos metagenomas.
 
