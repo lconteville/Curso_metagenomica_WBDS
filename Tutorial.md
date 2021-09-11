@@ -34,7 +34,7 @@ Alternativamente, alunxs com acesso a algum computador com o sistema operacional
 
     <code> cd Desktop/Dados/Dados_Brutos</code>
 
-- Para ler um arquivo pelo terminal, podemos usar o comando <code>head</code>. Esse comando mostra no terminal o conteúdo das 10 primeiras linhas de um arquivo.
+- Para ler um arquivo pelo terminal podemos usar o comando <code>head</code>. Esse comando mostra no terminal o conteúdo das 10 primeiras linhas de um arquivo.
 
     <code>head rumen_1.fastq</code>
 
@@ -54,19 +54,17 @@ Alternativamente, alunxs com acesso a algum computador com o sistema operacional
     
     <code>fastqc  rumen_2.fastq</code>
 
-- Cada um dos comandos acimam gera um arquivo <code>.html</code> e um arquivo <code>.zip</code>. O arquivo <code>.html</code> contêm um relatório final com todas as análises de qualidade realizadas. O arquivo <code>.zip</code> é um arquivo compactado das figuras e textos que são resultados das análises. As imagens no arquivo <code>.zip</code> são as mesmas que formam o arquivo <code>.html</code>. Para abrir um arquivo <code>.html</code> pelo terminal podemos usar a ferramenta [xdg-open](https://linux.die.net/man/1/xdg-open), que normalmente já vem instalada, seguida do nome do arquivo:
+- Cada um dos comandos acimam gera um arquivo <code>.html</code> e um arquivo <code>.zip</code>. O arquivo <code>.html</code> contêm um relatório final com todas as análises de qualidade realizadas. O arquivo <code>.zip</code> é um arquivo compactado das figuras e textos que compõem o <code>.html</code>. Para abrir um arquivo <code>.html</code> pelo terminal podemos usar a ferramenta [xdg-open](https://linux.die.net/man/1/xdg-open), que normalmente já vem instalada, seguida do nome do arquivo:
 
-    <code>xdg-open rumen_1_fastqc.html </code>
+    <code>xdg-open rumen_1_fastqc.html</code>
     
-    <code>xdg-open rumen_2_fastqc.html </code>
+    <code>xdg-open rumen_2_fastqc.html</code>
 
 - Pelos gráficos gerados pelo FastQC podemos ter uma ideia geral de como estão as nossas sequências. No site do FastQC são fornecidos exemplos de arquivos html de um metagenoma com [alta qualidade](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/good_sequence_short_fastqc.html) e [baixa qualidade](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/bad_sequence_fastqc.html).
 
 <h3> Trimagem e Filtragem </h3>
 
-- No geral, os metagenomas analisados nesse workshop não precisam de uma limpeza por já terem sido trimados antes de serem adicionados na base de dados, mas vamos aumentar ainda mais a qualidade de um deles.
-
-- A trimagem (corte) de adaptadores e bases de baixa qualidade é uma etapa importante na análise de dados de sequenciamento. Essas regiões são indesejadas por causarem erros ou viéses nas análises.
+- A trimagem (corte) de adaptadores e bases de baixa qualidade é uma etapa importante na análise de dados de sequenciamento. Essas regiões são indesejadas pois podem causar erros e viéses nas análises posteriores.
 
 - Para esta etapa, utilizaremos o programa [cutadapt](https://cutadapt.readthedocs.io/en/stable/). Este programa fornece diversos parâmetros que podem ser utilizados para melhorar a qualidade das nossas sequências. Execute o comando abaixo para ver todas as opções de parâmetros:
 
@@ -74,7 +72,7 @@ Alternativamente, alunxs com acesso a algum computador com o sistema operacional
         
 - Quando se sabe quais adaptadores foram utilizados no sequenciamento dos metagenomas, usamos os parâmetros <code>-a</code>, <code>-g</code>, <code>-b</code> seguidos das sequências dos adaptadores. Dessa forma, esses adaptadores serão removidos das sequências (ou da primeira leitura em um par se os dados forem paired-end). Se especificado várias vezes, apenas o melhor adaptador correspondente será cortado. Um arquivo FASTA com as sequências dos adaptadores também pode ser fornecido ao programa. 
 
-- Como aqui estamos analisando dados de diversos sequenciamentos, vamos cortar direto as bases que parecem "enviesadas" no começo e final das sequências. Para isso podemos usar o parâmetro <code>-u</code> (ou <code>--cut</code>). Neste parâmetro, se o número fornecido for positivo, as bases são removidas do início, e se for negativo, são removidas do final. O parâmetro <code>-o</code> deve ser usado para informar o nome do arquivo de saída. Dessa forma, o comando final fica assim:
+- Como aqui estamos analisando dados de diversos sequenciamentos, vamos cortar direto as bases que parecem "enviesadas" no começo e final das sequências. Para isso podemos usar o parâmetro <code>-u</code> (ou <code>--cut</code>). Neste parâmetro, se o número fornecido for positivo, as bases são removidas do início, e se for negativo, são removidas do final. O parâmetro <code>-o</code> (ou <code>--output</code>) deve ser usado para informar o nome do arquivo de saída. Dessa forma, o comando final fica assim:
 
     <code>cutadapt -u 20 -u -10 -o rumen_1.cut.fastq rumen_1.fastq</code>
     
@@ -84,13 +82,13 @@ Alternativamente, alunxs com acesso a algum computador com o sistema operacional
 
     <code>fastqc rumen_1.cut.fastq rumen_2.cut.fastq</code>
     
-- Quando rodar podemos visualizar os <code>.html</code> gerados:
+- Em seguida, vamos visualizar os <code>.html</code> gerados:
 
     <code>xdg-open rumen_1.cut_fastqc.html </code>
     
     <code>xdg-open rumen_2.cut_fastqc.html </code>
 
-- Dá pra melhorar ainda mais né? Então vamos rodar o cutadapt novamente nesses dados. Agora podemos lidar com os dois arquivos ao mesmo tempo.  O parâmetro <code>-q</code> (ou <code>--quality-cutoff</code>) será usado para cortar as bases de baixa qualidade das leituras. E o parâmetro <code>-m</code> (ou <code>--minimum-length</code>) será usado para descartar as sequências curtas demais. Em metagenomas paired-end, devemos fornecer dois arquivos de entrada e um segundo arquivo de saída com o parâmetro <code>-p</code> (ou <code>--pair-output</code>). Também usaremos o parâmetro <code>--pair-filter = any</code>, o que significa que o par de uma sequência será descartado se ela atender ao critério de filtragem. Então o comando fica assim:
+- Dá pra melhorar ainda mais né? Então vamos rodar o cutadapt novamente nesses dados. Agora podemos lidar com os dois arquivos ao mesmo tempo.  O parâmetro <code>-q</code> (ou <code>--quality-cutoff</code>) será usado para cortar as bases de baixa qualidade das leituras. E o parâmetro <code>-m</code> (ou <code>--minimum-length</code>) será usado para descartar as sequências curtas demais. Em metagenomas paired-end, devemos fornecer dois arquivos de entrada, e dois arquivos de saída com os parâmetros <code>-o</code> (ou <code>--output</code>) e <code>-p</code> (ou <code>--pair-output</code>). Também usaremos o parâmetro <code>--pair-filter = any</code>, o que significa que se uma sequência que atender ao critério de filtragem, o seu também será descartado. Então o comando fica assim:
 
     <code>cutadapt -q 20 -m 30 -o rumen_1.q20.fastq -p rumen_2.q20.fastq rumen_1.cut.fastq rumen_2.cut.fastq --pair-filter=any</code>
 
@@ -98,7 +96,7 @@ Alternativamente, alunxs com acesso a algum computador com o sistema operacional
 
     <code>fastqc rumen_*.q20.fastq</code>
     
- - Quando rodar podemos visualizar os <code>.html</code> gerados:
+- Em seguida, vamos visualizar os <code>.html</code> gerados:
 
     <code>xdg-open rumen_1.q20_fastqc.html </code>
     
@@ -116,19 +114,21 @@ Alternativamente, alunxs com acesso a algum computador com o sistema operacional
 
     <code>metaphlan -h</code>
     
-- Como nossos arquivos são <code>.fastq</code>, devemos avisar isso ao programa com o parâmetro <code>--input_type</code>. Os dois arquivos que serão usados como input nesse programa devem estar separados por uma vírgula. Utilizaremos o sinal <code>></code> para mandar o resultado do comando para o arquivo <code>caatinga_metaphlan.txt</code>. O comando final ficaria como demonstrado abaixo, mas <b>NÃO vamos rodar esse comando na máquina virtual</b>:
+- Como nossos arquivos são <code>.fastq</code>, devemos avisar isso ao programa com o parâmetro <code>--input_type</code>. Os dois arquivos que serão usados como input nesse programa devem estar separados por uma vírgula. Utilizaremos o sinal <code>></code> para mandar o resultado do comando para o arquivo <code>caatinga_metaphlan.txt</code>. O comando final ficaria como demonstrado abaixo, mas <b>NÃO vamos rodar esse comando no workshop</b>. Se o comando abaixo for executado, irá baixar a base de dados do metaphlan automaticamente e depois realizar a análise taxonômica dos <code>.fastq</code>. Se o comando for executado por acidente, ele pode ser interrompido com <code>Ctrl+C</code>.
 
     <code>metaphlan --input_type fastq caatinga_1.q20.fastq,caatinga_2.q20.fastq --bowtie2out caatinga_bowtie2out.txt > caatinga_metaphlan.txt</code>
     
-- O comando acima gerará 2 arquivos de texto. Para dar uma olhada nos resultados, vamos para o diretório <code>output_caatinga</code>, onde deixei pronto os resultados. Para visualizar os arquivos de saída podemos utilizar o comando <code>less</code> seguido do nome do arquivo. O comando irá exibir o conteúdo do arquivo e você pode usar as teclas para cima e para baixo no teclado e fazer a paginação. Para sair do <code>less</code> pressione a tecla <code>q</code> em seu teclado.
+- O comando acima gera 2 arquivos de texto. Para dar uma olhada nos resultados, vamos para o diretório <code>output_caatinga</code>, onde deixei pronto os resultados. 
 
     <code> cd output_caatinga </code>
+  
+- Para visualizar os arquivos de saída podemos utilizar o comando <code>less</code> seguido do nome do arquivo. Esse comando irá exibir o conteúdo do arquivo no terminal e você pode usar as teclas para cima e para baixo no teclado e fazer a paginação. Para sair do <code>less</code> pressione a tecla <code>q</code> em seu teclado.
  
-    <code> less caatinga_bowtie2out.txt</code>
+    <code>less caatinga_bowtie2out.txt</code>
  
-    <code> less caatinga_metaphlan.txt</code>
+    <code>less caatinga_metaphlan.txt</code>
     
-- O arquivo <code>caatinga_bowtie2out.txt</code> contém resultados do mapeamento feito pelo metaphlan listados um por linha em colunas separadas por nome da sequência metagenômica e a referência para qual esta sequência mapeou. 
+- O arquivo <code>caatinga_bowtie2out.txt</code> contém resultados dos mapeamentos (executado pelo bowtie2, que é chamado pelo metaphlan) listados um por linha em colunas separadas por nome da sequência metagenômica e a referência para qual esta sequência mapeou. 
 
 - O arquivo <code>caatinga_metaphlan.txt</code> possui um cabeçalho de 4 linhas iniciadas por <code>#</code>. A primeira linha lista o banco de dados de genes marcadores que o MetaPhlAn usa. A segunda linha lista o comando que foi utilizado para gerá-lo. A quarta linha contém os cabeçalhos das colunas que estão abaixo. Mais abaixo, temos uma tabela onde:
     - A primeira coluna lista os clados, de reinos (Bactérias, Archaea, etc.) a espécies:
@@ -143,13 +143,13 @@ Alternativamente, alunxs com acesso a algum computador com o sistema operacional
 
     <code>cp ../outputs/*_metaphlan.txt .</code>
 
-- Para gerar um arquivo com o resultado de várias análises taxonômics, podemos usar um script do pacote do metaphlan chamado <code>merge_metaphlan_tables.py</code>. Para utilizá-lo só precisamos chamá-lo seguido dos arquivos que queremos juntar:
+- Para gerar um arquivo com o resultado de várias análises taxonômicas, podemos utilizar um script do metaphlan chamado <code>merge_metaphlan_tables.py</code>. Para utilizá-lo, só precisamos chamá-lo seguido dos arquivos que queremos juntar:
 
-    <code>merge_metaphlan_tables.py rumen_metaphlan.txt caatinga_metaphlan.txt  yanomami_metaphlan.txt praia_metaphlan.txt > merged_metaphlan.txt</code>
+    <code>merge_metaphlan_tables.py rumen_metaphlan.txt caatinga_metaphlan.txt yanomami_metaphlan.txt praia_metaphlan.txt > merged_metaphlan.txt</code>
     
 - Esse arquivo tem informações de reinos a espécies, vamos filtrar para ficar só com os filos:
 
-    <code> head -1 merged_metaphlan.txt > merged_metaphlan_filos.txt ; grep -E "clade|p__" merged_metaphlan.txt | grep -v "c__" | sed 's/^.*p__//g' >> merged_metaphlan_filos.txt </code>
+    <code>head -1 merged_metaphlan.txt > merged_metaphlan_filos.txt ; grep -E "clade|p__" merged_metaphlan.txt | grep -v "c__" | sed 's/^.*p__//g' >> merged_metaphlan_filos.txt </code>
     
 - Agora vamos criar um heatmap com <code>hclust2</code> usando esse arquivo que acabamos de gerar: 
 
@@ -157,11 +157,11 @@ Alternativamente, alunxs com acesso a algum computador com o sistema operacional
     
 - Podemos abrir o arquivo <code>.png</code> que foi gerado usando a linha de comando:
 
-    <code> shotwell merged_metaphlan_filos.png </code>
+    <code>shotwell merged_metaphlan_filos.png</code>
 
 <h3> Análise Funcional </h3>
 
-- Vamos sair da pasta <code>Analise_Taxonomica/outputs</code> e acessar a pasta que estão nossos outros dados com o comando <code>cd</code>:
+- Vamos sair da pasta que estamos (<code>Analise_Taxonomica/output_caatinga</code>) e acessar a pasta que estão nossos dados para análise funcional com o comando <code>cd</code>:
 
     <code> cd ../../Analise_Funcional</code>
 
@@ -171,7 +171,7 @@ Alternativamente, alunxs com acesso a algum computador com o sistema operacional
 
     <code>superfocus -h</code>
 
-- Utilizamos <code>-q</code> para fornecer o caminho do diretório em que estão os nossos arquivos fastq e <code>-dir</code> para fornecer o caminho do diretório em que serão salvos os arquivos de saída. O SUPER-FOCUS permite realizarmos o alinhamento com 3 alinhadores diferentes: DIAMOND, RAPSearch2 e BLAST. Com o parâmetro <code>-a</code> indicamos qual deles vamos usar. No [github](https://github.com/metageni/SUPER-FOCUS) do SUPER-FOCUS, os autores deixaram recomendações para o uso de cada alinhador. E por último, temos o parâmetro <code>-db</code> para informar a base de dados utilizada. Dessa forma, o comando final fica assim (NÃO RODAR):
+- Utilizamos <code>-q</code> para fornecer o caminho do diretório em que estão os nossos arquivos fastq e <code>-dir</code> para fornecer o caminho do diretório em que serão salvos os arquivos de saída. O SUPER-FOCUS permite realizarmos o alinhamento com 3 alinhadores diferentes: DIAMOND, RAPSearch2 e BLAST. Com o parâmetro <code>-a</code> indicamos qual deles vamos usar. No [github](https://github.com/metageni/SUPER-FOCUS) do SUPER-FOCUS, os autores deixaram recomendações para o uso de cada alinhador. E por último, temos o parâmetro <code>-db</code> para informar a base de dados utilizada. Dessa forma, o comando final fica assim:
     
     <code>superfocus -q . -dir . -a diamond -db DB_90</code>
     
@@ -189,11 +189,11 @@ Alternativamente, alunxs com acesso a algum computador com o sistema operacional
 
     <code>cut -d$'\t' -f1,4,5 output_subsystem_level_1.xls | awk -F$'\t' 'NR>=6 { print $1"\t"($2+$3)/2 }' > yanomami_level1.tsv</code>
     
-- Para facilitar, já deixei os outputs dos outros metagenomas no diretório <code>outputs</code>. Vamos copiá-los para a página que estamos para trabalhar com eles:
+- Para facilitar, já deixei os outputs dos outros metagenomas no diretório <code>outputs</code>. Vamos copiá-los para a pasta que estamos e trabalhar com eles:
 
     <code> cp ../outputs/*_level1.tsv . </code>
         
-- Assim como fizemos na análise taxonômica, vamos criar um arquivo com os resultados da análise funcional de todos os metagenomas. Vamos usar o script do pacote do metaphlan chamado <code>merge_metaphlan_tables.py</code>. Para utilizá-lo só precisamos chamá-lo seguido dos arquivos que queremos juntar:
+- Assim como fizemos na análise taxonômica, vamos criar um arquivo com os resultados da análise funcional de todos os metagenomas. Vamos usar o script do metaphlan chamado <code>merge_metaphlan_tables.py</code>. Para utilizá-lo só precisamos chamá-lo seguido dos arquivos que queremos juntar:
 
     <code>merge_metaphlan_tables.py *_level1.tsv > merged_level1.txt</code>
          
@@ -201,7 +201,7 @@ Alternativamente, alunxs com acesso a algum computador com o sistema operacional
 
     <code>hclust2.py -i merged_level1.txt -o merged_level1.png --f_dist_f braycurtis --s_dist_f braycurtis --cell_aspect_ratio 0.5 -l --flabel_size 10 --slabel_size 10 --max_flabel_len 100 --max_slabel_len 100 --minv 0.1 --dpi 300</code>
     
-- Vamos abrir o arquivo .png que foi gerado usando a linha de comando:
+- Vamos abrir o arquivo <code>.png</code> que foi gerado usando a linha de comando:
 
     <code>shotwell merged_level1.png</code>
 
