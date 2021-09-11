@@ -116,7 +116,7 @@ Alternativamente, alunxs com acesso a algum computador com o sistema operacional
 
     <code>metaphlan -h</code>
     
-- Como nossos arquivos são <code>.fastq</code>, devemos avisar isso ao programa com o parâmetro <code>--input_type</code>. Os dois arquivos que serão usados como input nesse programa devem estar separados por uma vírgula. Utilizaremos o sinal <code>></code> para mandar o resultado do comando para o arquivo <code>caatinga_metaphlan.txt</code>. O comando final ficaria como demonstrado abaixo, mas <b>não vamos rodar esse comando na máquina virtual</b>:
+- Como nossos arquivos são <code>.fastq</code>, devemos avisar isso ao programa com o parâmetro <code>--input_type</code>. Os dois arquivos que serão usados como input nesse programa devem estar separados por uma vírgula. Utilizaremos o sinal <code>></code> para mandar o resultado do comando para o arquivo <code>caatinga_metaphlan.txt</code>. O comando final ficaria como demonstrado abaixo, mas <b>NÃO vamos rodar esse comando na máquina virtual</b>:
 
     <code>metaphlan --input_type fastq caatinga_1.q20.fastq,caatinga_2.q20.fastq --bowtie2out caatinga_bowtie2out.txt > caatinga_metaphlan.txt</code>
     
