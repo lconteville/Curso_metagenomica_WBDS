@@ -24,7 +24,7 @@ Contate-me em caso de dúvidas pelo endereço: lilianeconteville@gmail.com
 
 Toda a parte prática do curso poderá ser executada pela Máquina Virtual fornecida. A mesma já vem com todos os programas que vamos usar. No entanto, será possível acompanhar o curso mesmo se não tiverem baixado e instalado a Máquina Virtual.
 
-1. Realizar o download do programa [Oracle VM VirtualBox](https://www.virtualbox.org/wiki/Downloads), baixe e instale a versão do VirtualBox compatível com o seu sistema operacionale. Instale seguindo as instruções do site.
+1. Realizar o download do programa [Oracle VM VirtualBox](https://www.virtualbox.org/wiki/Downloads), baixe e instale a versão do VirtualBox compatível com o seu sistema operacional. Instale seguindo as instruções do site.
 2. Realizar o download da [vdi gerada para o curso](https://drive.google.com/file/d/18yABFK00BXX5uEiyRZ5Dt-6k_5L8Gxz1/view?usp=sharing)
 3. Após instalar o VirtualBox e baixar a vdi, abra o VirtualBox e clique em "Novo"
 4. Na janela que será aberta, dê o nome "Curso" à máquina virtual, indique uma pasta no seu computador onde ela será instalada, Em "Tipo" selecione "Linux", e em "Versão" selecione "Other Linux (64-bit)". Depois clique em "Próximo".
